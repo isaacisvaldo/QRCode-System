@@ -1,2 +1,2 @@
-# Digital-Seguro
- Encubadora de Aplicativos
+# QRCode-System
+Siatema que gera Codigos QR
