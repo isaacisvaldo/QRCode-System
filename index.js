@@ -5,9 +5,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 const cors =require("cors")
 const  route = require('./routes/routes');
-//const tempo_venda = require('./Tarefas/tempo_venda')
-//const tempo_venda = require('./Tarefas/tempo_investimento')
-const script = require('./scripts/default')
+//const script = require('./scripts/default')
 //Models
 const BD = require('./config/database')
 const port = process.env.PORT || 3000;
