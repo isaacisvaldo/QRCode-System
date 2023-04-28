@@ -9,7 +9,6 @@ const  route = require('./routes/routes');
 //Models
 const BD = require('./config/database')
 const port = process.env.PORT || 3000;
-//const leasing = require('./models/leasing')
 // Fim Models
 // View engine
 app.set('view engine','ejs');
