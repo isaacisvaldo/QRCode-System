@@ -1,0 +1,90 @@
+                                      E-COMMERCE
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««LOGAR NO APLICATIO»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/LoginEcommerce
+tipo:post
+retorno:token,cliente
+Nota:token{tera o seu token vai lhe permitir navegar nas rotas}cliente{dados do cliente}
+Com esta rota ele vai poder logar 
+se no seu dados como cliente no campo acesso_Ecommerce == 1 entao ele é um cliente normal, caso for 2 entao ele é um vendedor e vai ter retornado mas um variavel de nome produtos onde aparece todos os seus produtos ja cadastrados
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»CADASTRAR-SE»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/NovoClienteEcommerce
+tipo:post
+retorno:certo ou errado
+nome dos input:nome, email, telefone, username, senha, senha2, nif,provincia,municipio,endereco
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»LISTAR CATEGORIAS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Categorias
+tipo:get
+retorno:categorias
+Nota:Ele retorna todas as cotegorias com os seus produtos e os vendedor que cadastraram o produto»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»LISTAR CATEGORIAS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»LISTAR PRODUTOS EM FUNCAO DA CATEGORIA»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Categoria_Produtos/:categoria_id
+tipo:get
+Rota de parametro obrigatorio
+retorno:produtos
+Nota:Esta rota serve para pesquisar todos os produtos que pertencem a uma deeterminada categoria»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»LISTAR PRODUTOS EM FUNCAO DA CATEGORIA»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»LISTAR UMA CATEGORIA ESPECIFICA»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:&Categoria/:categoria_id
+tipo:get
+retorno:categoria
+parametro obrigatorio:categoria_id
+Nota:Esta rota serve para pesquisar uma categoria especifica 
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»LISTAR PRODUTOS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Produtos
+tipo:get
+retorno:produtos
+Nota:Esta rota serve para pesquisar todos os produtos em geral
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»LISTAR UM PRODUTO ESPECIFICO»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Produto/:produto_id
+tipo:get
+parametro obrigatorio:produto_id
+retorno:produto,comentarios
+Nota:Esta rota serve para pesquisar um produto especifico
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»CADASTRAR PRODUTO »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/RegistarProduto
+tipo:POST
+BODY: precoProduto, nomeProduto, infoProduto, provincia, municipio, quantidadeProduto, lat, lng,cliente_id, categoria_id
+NOTA: o file das imagens , os 5 tem que ter o name de :'imagens'
+retorno:certo ou errado
+Nota 2:numero de imagens 5
+retorno:certo ou errado
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»CADASTRAR IMAGENS PRODUTO »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+(Essa funcionalidade é Opcional)
+rota:/RegistarImagensProduto
+tipo:POST
+BODY: produto_id
+NOTA: o file das imagens , os 5 tem que ter o name de :'imagens'
+retorno:certo ou errado
+Nota 2:numero de imagens 5
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»TORNAR_SE VENDEDOR»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+(Este tambem é Opcional Porque no site (WEB) ja faz isso)
+rota:/TornarVendedorEcomerce
+tipo:POST
+BODY: motivo,detalhes,cliente_id,limitePeriodo,dataFimPeriodo
+NOTA: o file do arquivo de pagamento , name de :'arquivo'
+retorno:certo ou errado
+limitePeriodo(Tera o data que vai terminar para eu cadastrar na BD)
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» AVALIAR UM PRODUTO»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Avaliar_produto
+tipo:POST
+BODY:comentario_avaliacao_produto,avaliacao_produto,id_cliente_avaliacao_produto,produto_id_avaliacao_produto
+NOTA: o file do arquivo de pagamento , name de :'arquivo'
+retorno:certo ou erro
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» PROMOVER O PRODUTO NO GCOMMERCE »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Promocao_produto
+tipo:POST
+BODY:nome_propaganda,descricao_propaganda,produto_id,NovoprecoProduto
+NOTA: o file do arquivo de pagamento,name de :'imagens'
+retorno:certo ou erro
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» RETORNA A QUANTIDADE DE ESTRELA E TODAS AS COMPRAS DE UM PRODUTO ESPECIFICO »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Quantidadades_venda_produto
+tipo:get
+RETORNO:produtos,quantidade_estrela
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»  ROTA DE PESQUISA DINAMICA »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/Pesquisa_Dinanica
+tipo:POST
+BODY:pesquisa
+RETORNO:produto
+
+

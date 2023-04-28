@@ -1,0 +1,101 @@
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»CADASTRAR-SE»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/NovaEntidadeCultural
+tipo:post
+retorno:certo ou errado
+nome, email, telefone, username, senha, senha2, nif,provincia,municipio,endereco,acesso_Cultural
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««LOGAR NO APLICATIO»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/LoginCulturalSeguros
+tipo:post
+retorno:token,cliente
+Nota:token{tera o seu token vai lhe permitir navegar nas rotas}cliente{dados do cliente}
+Com esta rota ele vai poder logar 
+se no seu dados como cliente no campo acesso_Cultural 1- User Normal;2-   ;3-; 4-; 5
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»CADASTRAR-SE»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»«
+rota:/NovaEntidadeCultural
+tipo:POST
+retorno:certo ou errado
+nome, email, telefone, username, senha, senha2, nif,provincia,municipio,endereco,acesso_Cultural
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««LOGAR NO APLICATIO»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/LoginCulturalSeguros
+tipo:POST
+retorno:token,cliente
+Nota:token{tera o seu token vai lhe permitir navegar nas rotas}cliente{dados do cliente}
+Com esta rota ele vai poder logar 
+se no seu dados como cliente no campo acesso_Cultural 1- User Normal;2-   ;3-; 4-; 5
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««PPESQUISA DINÁNICA»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Pesquisa_Dinanica_Cultural
+tipo:POST
+retorno:musicas,livros,artes_plasticas,eventos,categorias_musicas,categoria_livro,categoria_evento,categoria_artes_plasticas
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««CATEGORIA DAS MUSICAS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Categorias_Musicas
+tipo:GET
+retorno:categorias_musicas
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««CATEGORIA DAS LIVROS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Categorias_Livro
+tipo:GET
+retorno:Categorias_Livro
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««CATEGORIA DAS EVENTOS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Categorias_Evento
+tipo:GET
+retorno:categoria_evento
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««CATEGORIA DAS ARTES PLASTICAS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/categoria_artes_plasticas
+tipo:GET
+retorno:categoria_artes_plasticas
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««MUSICAS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Musicas
+tipo:GET
+retorno:musicas
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»«««««««« UMA MUSICA ESPECIFICA »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Uma_Musica/:id_musica
+tipo:GET
+retorno:musica
+NOTA:ROTA DE PARAMETRO OBRIGATORIO
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««LIVROS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Livros
+tipo:GET
+retorno:Livros
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»«««««««« UM LIVRO ESPECIFICO »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Um_Livro/:id_livro
+tipo:GET
+retorno:Livro
+NOTA:ROTA DE PARAMETRO OBRIGATORIO
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««ARTES PLASTICAS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Artes_plasticas
+tipo:GET
+retorno:artes_plasticas
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»«««««««« UMA ARTES ESPECIFICA »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Uma_Arte_plastica/:id_artes_plasticas
+retorno:arte_plastica
+NOTA:ROTA DE PARAMETRO OBRIGATORIO
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»««««««««EVENTOS»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Eventos
+tipo:GET
+retorno:eventos
+»»»»»»»»»»»»»»»»»»»»»»»»»»«««««««« UM EVENTO ESPECIFICO »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Um_Evento/:id_evento
+retorno:evento
+tipo:GET
+NOTA:ROTA DE PARAMETRO OBRIGATORIO
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»«««««««« MUSICAS ADQUIRIDAS »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Musicas_Adquiridas/:id_entidade_adquiriu
+tipo:GET
+retorno:musicas_adquiridas
+NOTA:ROTA DE PARAMETRO OBRIGATORIO
+»»»»»»»»»»»»»»»»»»»»»»»»»»«««««««« LIVROS ADQUIRIDOS »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Livros_Adquiridos/:id_entidade_adquiriu
+tipo:GET
+retorno:livros_adquiridos
+NOTA:ROTA DE PARAMETRO OBRIGATORIO
+»»»»»»»»»»»»»»»»»»»»»»»»»»«««««««« BILHETES DE EVENTOS »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+rota:/Bilhetes_Eventos_adquiridos/:id_entidade_adquiriu
+tipo:GET
+retorno:bilhetes_Eventos_adquiridos
+NOTA:ROTA DE PARAMETRO OBRIGATORIO

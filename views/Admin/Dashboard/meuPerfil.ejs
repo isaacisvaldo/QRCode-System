@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../Partes/head') %>
+
+	<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+		<div class="wrapper">
+			<%- include('../Partes/sidebar') %>
+				<div class="main">
+					<%- include('../Partes/nav') %>
+
+						<main class="content">
+							<div class="container-fluid p-0">
+
+								<h1 class="h3 mb-3">Definições</h1>
+
+								<div class="row">
+									<div class="col-md-3 col-xl-2">
+
+										<div class="card">
+											
+
+											<div class="list-group list-group-flush" role="tablist">
+												<a class="list-group-item list-group-item-action active"
+													data-bs-toggle="list" href="#account" role="tab">
+													Conta
+												</a>
+												<a class="list-group-item list-group-item-action" data-bs-toggle="list"
+													href="#password" role="tab">
+													Segurança
+												</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-9 col-xl-10">
+										<div class="tab-content">
+											<div class="tab-pane fade show active" id="account" role="tabpanel">
+
+												<div class="card">
+
+													<div class="card-body">
+														<form action="/EditarminhaContaAdmin" method="post">
+															<div class="row">
+																<div class="col-md-8">
+																	<div class="mb-3">
+																		<label for="inputUsername"
+																			class="form-label">Username</label>
+																		<input type="text" class="form-control"
+																			id="inputUsername" placeholder="Username" name="username" value="<%= admin.username %>">
+																	</div>
+																	<div class="mb-3">
+																		<label for="inputUsername"
+																			class="form-label">Biografia</label>
+																		<textarea rows="2" class="form-control"
+																			id="inputBio"
+																		disabled	placeholder="Tell something about yourself"></textarea>
+																	</div>
+																</div>
+																<div class="col-md-4">
+																	<div class="text-center">
+																		<img alt="<%= admin.nome %>"
+																			src="/uploads/foto/<%= admin.image %> "
+																			class="rounded-circle img-responsive mt-2"
+																			width="128" height="128" />
+																		<div class="mt-2">
+																			<span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sizedModalSm"><i
+																					class="fas fa-upload"></i>
+																				Upload</span>
+																		</div>
+																		<small>For best results, use an image at least
+																			128px by 128px in .jpg format</small>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="mb-3 col-md-6">
+																		<label for="inputFirstName"
+																			class="form-label">Nome</label>
+																		<input type="text" class="form-control"
+																			id="inputFirstName"
+																			placeholder="First name" value="<%= admin.nome %>" name="nome">
+																	</div>
+																	<div class="mb-3 col-md-6">
+																		<label for="inputEmail4"
+																			class="form-label">Email</label>
+																		<input type="email" class="form-control"
+																			id="inputEmail4" placeholder="Email" value="<%=admin.email%>" name="email">
+																	</div>
+																	
+																</div>
+																<div class="row">
+																<div class="mb-3 col-md-6">
+																	<label for="inputAddress"
+																		class="form-label">Nif</label>
+																	<input type="text" class="form-control"
+																		id="inputAddress" name="nif" value="<%=admin.nif%>">
+																</div>
+																<div class="mb-3 col-md-6">
+																	<label for="inputAddress"
+																		class="form-label">Telefone</label>
+																	<input type="text" class="form-control"
+																		id="inputAddress" name="telefone" value="<%= admin.telefone %>">
+																</div>
+																
+															</div>
+															</div>
+
+															<button type="submit" class="btn btn-primary">Salvar Alterações</button>
+														</form>
+
+													</div>
+												</div>
+
+											
+
+											</div>
+											<div class="tab-pane fade" id="password" role="tabpanel">
+												<div class="card">
+													<div class="card-body">
+														<h5 class="card-title">Password</h5>
+
+														<form action="/alterarSenhaAdmin" method="post">
+															<div class="mb-3">
+																<label for="inputPasswordCurrent"
+																	class="form-label">Senha Atual</label>
+																<input type="password" class="form-control"
+																	id="inputPasswordCurrent" name="senhaatual">
+																<small><a href="#">Esqueceu a sua senha ?</a></small>
+															</div>
+															<div class="mb-3">
+																<label for="inputPasswordNew" class="form-label">Nova Senha</label>
+																<input type="password" class="form-control"
+																	id="inputPasswordNew" name="senha">
+															</div>
+															<div class="mb-3">
+																<label for="inputPasswordNew2" class="form-label">Verificar Senha</label>
+																<input type="password" class="form-control"
+																	id="inputPasswordNew2" name="senha2">
+															</div>
+															<button type="submit" class="btn btn-primary">Salvar Alterações</button>
+																
+														</form>
+
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="modal fade" id="sizedModalSm" tabindex="-1" role="dialog" aria-hidden="true">
+											<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<form action="/AlterarFotoAdmin" enctype="multipart/form-data" method="post">
+													<div class="modal-body m-3">
+														<input type="file" name="image" id="customFile" onchange= "ValidarExt()">
+													
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fechar</button>
+														<button type="submit" class="btn btn-primary">Alterar Foto</button>
+													</div>
+												  </form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</main>
+
+						<%- include('../Partes/footer') %>
+				</div>
+		</div>
+
+		<script src="/Dash/js/app.js"></script>
+		<script src="/sweetalert/sweetalert2.all.min.js"></script>
+		</script>
+		<% if(errado.length>0) {%>
+			<script>
+				var Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+				Toast.fire({
+					icon: 'error',
+					title: '<%=errado %>'
+				})
+			</script>
+
+			<% }else if(certo.length>0) {%>
+				<script>
+
+					const Toast = Swal.mixin({
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000,
+						timerProgressBar: true,
+						didOpen: (toast) => {
+							toast.addEventListener('mouseenter', Swal.stopTimer)
+							toast.addEventListener('mouseleave', Swal.resumeTimer)
+						}
+					})
+
+					Toast.fire({
+						icon: 'success',
+						title: `<%= certo %>`
+					})
+
+				</script>
+				<% }%>
+				<script>
+					function ValidarExt() {
+						var customFile = document.getElementById('customFile');
+						var customRuta = customFile.value;
+						var customPermitidas = /(.jpg|.png|.PNG.|JPG|.jpeg|.JPEG|.svg|.SVG)$/i;
+						if (!customPermitidas.exec(customRuta)) {
+						  Swal.fire({
+							icon: 'error',
+							title: 'Oops...',
+							text: 'Extensão não permitido!',
+				  
+						  })
+						  customFile.value = '';
+						  return false
+						}
+					  }
+					</script>
+
+	</body>
+
+
+	<!-- Mirrored from appstack.bootlab.io/pages-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:35 GMT -->
+
+</html>

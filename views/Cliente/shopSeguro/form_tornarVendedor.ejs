@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from appstack.bootlab.io/forms-layouts.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<%- include('../Partes/head') %>
+<!--
+  HOW TO USE: 
+  data-theme: default (default), dark, light
+  data-layout: fluid (default), boxed
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+	<div class="wrapper">
+		<%- include('../Partes/sidebar') %>
+		<div class="main">
+			<%- include('../Partes/nav') %>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+					<div class="alert alert-warning alert-dismissible" role="alert">
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						<div class="alert-icon">
+							<i class="far fa-fw fa-bell"></i>
+						</div>
+						<div class="alert-message">
+							<strong>Hora Viva!</strong> Adicionar uma informação que tem a ver com a Solicitação!
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12 col-xl-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Formulário</h5>
+								</div>
+								<div class="card-body">
+									<form  action="/tornarVendedor" method="post" enctype="multipart/form-data">
+										<div class="row">
+										<div class="mb-3 col-md-6">
+											<label class="form-label">Motivo</label>
+											<input type="text" class="form-control" name="motivo">
+										</div>
+										<div class="mb-3 col-md-6">
+											<label class="form-label">Plano</label>
+											<select name="limitePeriodo" id="" class="form-control">
+												<option value="30">Mensal</option>
+												<option value="90">Trimestral</option>
+												<option value="120">Simestral</option>
+												<option value="360">Anual</option>
+											</select>
+										</div>
+									</div>
+										
+										<div class="mb-3">
+											<label class="form-label">detalhes</label>
+											<textarea class="form-control" name="detalhes" placeholder="Textarea" rows="4"></textarea>
+										</div>
+										<div class="mb-3">
+											<label class="form-label w-100">arquivo</label>
+											<input type="file" name="arquivo">
+											<small class="form-text text-muted">Submete o seu comprovativo de Pagamento.</small>
+										</div>
+										<div class="mb-3">
+											<label class="form-check m-0">
+              <input type="checkbox" required class="form-check-input">
+              <span class="form-check-label">Concordo com as condições</span>
+            </label>
+										</div>
+										<button type="submit" class="btn btn-primary">Submeter informações</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+			</main>
+
+			<%- include('../Partes/footer') %>
+		</div>
+	</div>
+
+	<script src="/Dash/js/app.js"></script>
+	<script src="/sweetalert/sweetalert2.all.min.js"></script>
+	<% if(errado.length>0) {%>
+		<script>
+			var Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+			Toast.fire({
+				icon: 'error',
+				title: '<%=errado %>'
+			})
+		</script>
+
+		<% }else if(certo.length>0) {%>
+			<script>
+
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					icon: 'success',
+					title: `<%= certo %>`
+				})
+
+			</script>
+			<% }%>
+
+</body>
+
+
+<!-- Mirrored from appstack.bootlab.io/forms-layouts.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:37 GMT -->
+</html>

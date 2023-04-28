@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./Partes/head') %>
+
+	<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+		<div class="wrapper">
+			<%- include('./Partes/sidebar') %>
+				<div class="main">
+					<%- include('./Partes/nav') %>
+
+						<main class="content">
+							<div class="container-fluid p-0">
+
+								<h1 class="h3 mb-3">Definições</h1>
+
+								<div class="row">
+									<div class="col-md-3 col-xl-2">
+
+										<div class="card">
+											
+
+											<div class="list-group list-group-flush" role="tablist">
+												<a class="list-group-item list-group-item-action active"
+													data-bs-toggle="list" href="#account" role="tab">
+													Conta
+												</a>
+												<a class="list-group-item list-group-item-action" data-bs-toggle="list"
+													href="#password" role="tab">
+													Segurança
+												</a>
+												<a class="list-group-item list-group-item-action" data-bs-toggle="list"
+													href="#bancarias" role="tab">
+													Cordenadas Bancarias
+												</a>
+												
+												<a class="list-group-item list-group-item-action" data-bs-toggle="list"
+													href="#trabalho" role="tab">
+													Registro de Trabalho
+												</a>
+												
+											
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-9 col-xl-10">
+										<div class="tab-content">
+
+											<div class="tab-pane fade show active" id="account" role="tabpanel">
+
+												<div class="card">
+
+													<div class="card-body">
+														<form method="post" action="/EditarPerfilCliente">
+															<div class="row">
+																<div class="col-md-8">
+																	<div class="mb-3">
+																		<label for="inputUsername"
+																			class="form-label">Username</label>
+																		<input type="text" class="form-control"
+																			id="inputUsername"  value="<%= cliente.username %>" name="username">
+																	</div>
+																	<div class="mb-3">
+																		<label for="inputUsername"
+																			class="form-label">Biografia</label>
+																		<textarea rows="2" class="form-control" disabled
+																			id="inputBio"
+																			placeholder="Diz qualquer coisa sobre voce"></textarea>
+																	</div>
+																</div>
+																<div class="col-md-4">
+																	<div class="text-center">
+																		<img alt="<%= cliente.nome %>"
+																			src="/uploads/foto/<%= cliente.image %> "
+																			class="rounded-circle img-responsive mt-2"
+																			width="128" height="128" />
+																		<div class="mt-2">
+																			<span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sizedModalSm"><i
+																					class="fas fa-upload"></i>
+																				Upload</span>
+																		</div>
+																		<small>For best results, use an image at least
+																			128px by 128px in .jpg format</small>
+																	</div>
+																</div>
+																						 
+																<div class="row">
+																	<div class="mb-3 col-md-6">
+																		<label for="inputFirstName"
+																			class="form-label">Nome</label>
+																		<input type="text" class="form-control"
+																			id="inputFirstName"
+																			value="<%= cliente.nome %>" name="nome">
+																	</div>
+																	<div class="mb-3 col-md-6">
+																		<label for="inputLastName"
+																			class="form-label">Nif</label>
+																		<input type="text" class="form-control"
+																			id="inputLastName" value="<%= cliente.nif %>" name="nif">
+																	</div>
+																</div>
+																<div class="mb-3">
+																	<label for="inputEmail4"
+																		class="form-label">Email</label>
+																	<input type="email" class="form-control"
+																		id="inputEmail4" value="<%= cliente.email %>" name="email">
+																</div>
+																<div class="mb-3">
+																	<label for="inputAddress"
+																		class="form-label">Telefone</label>
+																	<input type="number" class="form-control"
+																		id="inputAddress"  value="<%= cliente.telefone %>" name="telefone">
+																</div>
+																<div class="mb-3">
+																	<label for="inputAddress2"
+																		class="form-label">Endereço</label>
+																	<input type="text" class="form-control"
+																		id="inputAddress2" name="endereco"
+																		placeholder="Apartment, studio, or floor" value="<%= cliente.endereco%>">
+																</div>
+																<div class="row">
+																	
+																	<div class="mb-3 col-md-6">
+																		<label for="inputState"
+																			class="form-label">Provincia</label>
+																			<select required class="form-control " name="provincia" id="slctprovincia" onchange="populate(this.id,'slctmunicipio')" autofocus>
+								  
+																				<option disabled="disabled" selected="selected"> Escolha a província</option>
+																				<option value="luanda">Luanda</option>
+																				   <option value="benguela">Benguela</option>
+																				   <option value="bengo">Bengo</option>
+																				   <option value="bié">Bié</option>
+																				   <option value="cabinda">Cabinda</option>
+																				   <option value="cuando-cubango">Cuando-Cubango</option>
+																				   <option value="cuanza norte">Cuanza Norte</option>
+																				   <option value="cuanza sul">Cuanza Sul</option>
+																				   <option value="cunene">Cunene</option>
+																				   <option value="huambo">Huambo</option>
+																				   <option value="huíla">Huíla</option>
+																				   <option value="lunda norte">Lunda Norte</option>
+																				   <option value="lunda sul">Lunda Sul</option>
+																				   <option value="malange">Malange</option>
+																				   <option value="moxico">Moxico</option>
+																				   <option value="namibe">Namibe</option>
+																				   <option value="uíge">Uíge</option>
+																				   <option value="zaire">Zaire</option>
+																			  
+																			  </select>
+																	</div>
+																	<div class="mb-3 col-md-6">
+																		<label for="inputZip"
+																			class="form-label">Municipio</label>
+																			<select autofocus required name="municipio" id="slctmunicipio" class="form-control"> <option disabled="disabled" selected="selected"> Escolha o municipio</option></select> 
+                                            
+																	</div>
+																</div>
+															</div>
+
+															<button type="submit" class="btn btn-primary">Salvar Alterações</button>
+														</form>
+
+													</div>
+												</div>
+
+											
+
+											</div>
+											<div class="tab-pane fade" id="password" role="tabpanel">
+												<div class="card">
+													<div class="card-body">
+														<h5 class="card-title">Password</h5>
+
+														<form method="post" action="/AlterSenha">
+															<div class="mb-3">
+																<label for="inputPasswordCurrent"
+																	class="form-label">Senha Atual</label>
+																<input type="password" class="form-control"
+																	id="inputPasswordCurrent" name="senhaatual">
+																<small><a href="#">Esqueceu a senha?</a></small>
+															</div>
+															<div class="mb-3">
+																<label for="inputPasswordNew" class="form-label">Nova Senha</label>
+																<input type="password" class="form-control"
+																	id="inputPasswordNew" name="senha">
+															</div>
+															<div class="mb-3">
+																<label for="inputPasswordNew2" class="form-label">Confirmar Senha</label>
+																<input type="password" class="form-control"
+																	id="inputPasswordNew2" name="senha2">
+															</div>
+															<button type="submit" class="btn btn-primary">Salvar Alterações</button>
+																
+														</form>
+
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="bancarias" role="tabpanel">
+												<div class="card">
+													<div class="card-body">
+														<button class="btn btn-pill btn-primary"  data-bs-toggle="modal" data-bs-target="#sizeBanco">Novo</button>
+														
+														<table id="datatables-banco" class="table table-striped" style="width:100%">
+															<thead>
+																<tr>
+																	<th style="width:40%;">Name</th>
+																	<th style="width:25%">Nº </th>
+																	<th class="d-none d-md-table-cell" style="width:25%">Ibam*</th>
+																	<th style="width:25%">Estado</th>
+																	<th>Acção</th>
+																</tr>
+															</thead>
+															<tbody>
+																<% bancario.reverse().map(bancario=>{ %>
+																<tr>
+																	<td><%= bancario.nome_Banco %></td>
+																	<td><%= bancario.numero_conta %></td>
+																	<td class="d-none d-md-table-cell"><%= bancario.iban_conta %></td>
+																	<td><span class="badge bg-success">Active</span></td>
+																	<td>
+																		<div class="btn-group btn-group-sm">
+																			<i class="align-middle dropdown-toggle" data-feather="list" data-bs-toggle="dropdown" aria-haspopup="true"
+																			aria-expanded="false"></i>
+																			
+																			<div class="dropdown-menu">
+																				<!--<a class="dropdown-item" href="#">Ver</a>-->	
+																				<div class="dropdown-divider"></div>
+																				<a class="dropdown-item" href="#"  onclick="Cordenada( `<%= bancario.id_cordenadas %>`)"> <i class="align-middle" data-feather="trash" ></i> Deletar</a>
+																			</div>
+																		</div>
+																		
+																	</td>
+																</tr>
+																<%}) %>
+
+															</tbody>
+														</table>
+
+													</div>
+												</div>
+												<div class="modal fade" id="sizeBanco" tabindex="-1" role="dialog" aria-hidden="true">
+													<div class="modal-dialog modal-lg" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title">Nova Cordenadas Bancarias</h5>
+																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+															</div>
+															<div class="modal-body m-3">
+																<form method="post" action="/NovaContaBancaria">
+																	<div class="row">
+																		<div class="mb-3 col-md-6">
+																			<label class="form-label"
+																				for="inputNome">Nome*</label>
+																			<input type="text" class="form-control"
+																				id="inputNome" placeholder="Nome" name="nome_Banco">
+																		</div>
+																		<div class="mb-3 col-md-6">
+																			<label class="form-label"
+																				for="inputEmail4">Nº Conta</label>
+																			<input type="number" class="form-control"
+																				id="inputEmail4" placeholder="numero_conta" name="numero_conta">
+																		</div>
+																	</div>
+																	<div class="row">
+																	<div class="mb-3 col-md-6">
+																		<label class="form-label"
+																			for="inputAddress">Nib*</label>
+																		<input type="text" class="form-control"
+																			id="inputAddress" placeholder="nib" name="nib_conta">
+																	</div>
+																	<div class="mb-3 col-md-6">
+																		<label class="form-label"
+																			for="inputAddress2">Ibam</label>
+																		<input type="text" class="form-control"
+																			id="inputAddress2"
+																			placeholder="AO06" name="iban_conta">
+																	</div>
+																</div>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+																<button type="submit" class="btn btn-primary">Cadastar</button>
+															</div>
+														</form>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="trabalho" role="tabpanel">
+												<div class="card">
+													<div class="card-body">
+														<button class="btn btn-pill btn-primary" data-bs-toggle="modal" data-bs-target="#sizeTrabalho">Novo</button>
+														<table id="datatables-clients" class="table table-striped" style="width:100%">
+															<thead>
+																<tr>
+																	<th>#</th>
+																	<th>Name</th>
+																	<th>Salario</th>
+																	<th>Banco Salario</th>
+																	<th>Estado</th>
+																	<th>Acção</th>
+																</tr>
+															</thead>
+															<tbody>
+																<% trabalho.reverse().map(trabalho=>{ %>
+																<tr>
+																	<td><%= trabalho.id_informacao %></td>
+																	<td><%= trabalho.nome_empresa %></td>
+																	<td><%= trabalho.salario_mensal	 %></td>
+																	<td><%= trabalho.nome_Banco	 %></td>
+																	<td><span class="badge bg-success">Active</span></td>
+																	<td>
+																		<div class="btn-group btn-group-sm">
+																			<i class="align-middle dropdown-toggle" data-feather="list" data-bs-toggle="dropdown" aria-haspopup="true"
+																			aria-expanded="false"></i>
+																			
+																			<div class="dropdown-menu">
+																				<!--<a class="dropdown-item" href="#">Ver</a>-->	
+																				<div class="dropdown-divider"></div>
+																				<a class="dropdown-item" href="#"  onclick="trabalho( `<%= trabalho.id_informacao %>`)"> <i class="align-middle" data-feather="trash" ></i> Deletar</a>
+																			</div>
+																		</div>
+																		
+																	</td>
+																</tr>
+																<%}) %>
+
+															</tbody>
+														</table>
+
+													</div>
+												</div>
+												<div class="modal fade" id="sizeTrabalho" tabindex="-1" role="dialog" aria-hidden="true">
+													<div class="modal-dialog modal-lg" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title">Nova informação de Trabalho</h5>
+																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+															</div>
+															<div class="modal-body m-3">
+																<form method="post" action="/NovaEmpresa">
+																	<div class="row">
+																		<div class="mb-3 col-md-4">
+																			<label class="form-label"
+																				for="inputNome">Nome Empresa*</label>
+																			<input type="text" class="form-control"
+																				id="inputNome" placeholder="Nome" name="nome_empresa">
+																		</div>
+																		<div class="mb-3 col-md-4">
+																			<label class="form-label"
+																				for="inputEmail4">Salario Mensal</label>
+																			<input type="number" class="form-control"
+																				id="inputEmail4" placeholder="salario_mensal" name="salario_mensal">
+																		</div>
+																		<div class="mb-3 col-md-4">
+																			<label class="form-label"
+																				for="inputEmail4">Banco Salario</label>
+																				<select name="banco_id" required class="form-control">
+																					<% bancario.reverse().map(bancario=>{ %>
+																					<option value="<%= bancario.id_cordenadas%>"><%= bancario.nome_Banco%></option>
+																					<%}) %>
+																				</select>
+																		</div>
+																	</div>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+																<button type="submit" class="btn btn-primary">Cadastar</button>
+															</div>
+														</form>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="modal fade" id="sizedModalSm" tabindex="-1" role="dialog" aria-hidden="true">
+											<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<form action="/AlterarFotoCliente" enctype="multipart/form-data" method="post">
+													<div class="modal-body m-3">
+														<input type="file" name="image" id="customFile" onchange= "ValidarExt()" >
+													
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fechar</button>
+														<button type="submit" class="btn btn-primary">Alterar Foto</button>
+													</div>
+												  </form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</main>
+
+						<%- include('./Partes/footer') %>
+				</div>
+		</div>
+
+		<script src="/Dash/js/app.js"></script>
+		<script src="/sweetalert/sweetalert2.all.min.js"></script>
+		<script src="/Dash/js/ApiProvincia-municipio.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				// Datatables clients
+				$("#datatables-clients").DataTable({
+					responsive: true,
+					order: [
+						[1, "desc"]
+					]
+				});
+			});
+			document.addEventListener("DOMContentLoaded", function() {
+				// Datatables clients
+				$("#datatables-banco").DataTable({
+					responsive: true,
+					order: [
+						[1, "desc"]
+					]
+				});
+			});
+		</script>
+		</script>
+		<% if(errado.length>0) {%>
+			<script>
+				var Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+				Toast.fire({
+					icon: 'error',
+					title: '<%=errado %>'
+				})
+			</script>
+
+			<% }else if(certo.length>0) {%>
+				<script>
+
+					const Toast = Swal.mixin({
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000,
+						timerProgressBar: true,
+						didOpen: (toast) => {
+							toast.addEventListener('mouseenter', Swal.stopTimer)
+							toast.addEventListener('mouseleave', Swal.resumeTimer)
+						}
+					})
+
+					Toast.fire({
+						icon: 'success',
+						title: `<%= certo %>`
+					})
+
+				</script>
+				<% }%>
+			<script>
+				function Cordenada(id){
+		  
+					Swal.fire({
+					  title: 'Queres Deletar Este Cordenada Bancaria ?',
+					icon:'warning',
+					  showCancelButton: true,
+					  confirmButtonColor:'#3085d6',
+					  cancelButtonColor:'#d33',
+					  confirmButtonText: 'Confirmar',
+					
+					}).then((result) => {
+					  /* Read more about isConfirmed, isDenied below   */
+					  if (result.isConfirmed) {
+					
+					   window.location = '/DeletarContaBancaria/'+id;
+					  } else if (result.isDenied) {
+						Swal.fire('Erro ao eliminar', '', 'info')
+					  }
+					})
+					  }
+					  </script>
+					  <script>
+						function ValidarExt() {
+							var customFile = document.getElementById('customFile');
+							var customRuta = customFile.value;
+							var customPermitidas = /(.jpg|.png|.PNG.|JPG|.jpeg|.JPEG|.svg|.SVG)$/i;
+							if (!customPermitidas.exec(customRuta)) {
+							  Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'Extensão não permitido!',
+					  
+							  })
+							  customFile.value = '';
+							  return false
+							}
+						  }
+						</script>
+
+	</body>
+
+
+	<!-- Mirrored from appstack.bootlab.io/pages-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:35 GMT -->
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+    <meta name="author" content="Bootlab">
+
+    <title>Digital Seguros</title>
+
+    <link rel="canonical" href="pages-sign-up.html" />
+    <link rel="shortcut icon" href="/uploads/LogoIcon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+    <!-- Choose your prefered color scheme -->
+    <link href="/Dash/css/light.css" rel="stylesheet">
+    <!-- <link href="/Dash/css/dark.css" rel="stylesheet"> -->
+
+    <!-- BEGIN SETTINGS -->
+    <!-- Remove this after purchasing -->
+    <link class="js-stylesheet" href="/Dash/css/light.css" rel="stylesheet">
+
+    <!-- END SETTINGS -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 2120269, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3ZYEKLQ68"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q3ZYEKLQ68');
+    </script>
+</head>
+
+
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+    <div class="main d-flex justify-content-center w-100">
+        <main class="content d-flex p-0">
+            <div class="container d-flex flex-column">
+                <div class="row h-100">
+                    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                        <div class="d-table-cell align-middle">
+                            <div class="text-center pointer" style="cursor: pointer;">
+                                <img  src="/uploads/logo.png" onclick="window.location='/'"
+                                    class="img-fluid  " width="132" height="132" />
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <h1 class="h2">Faça seu Cadastro</h1>
+                                <!-- <p class="lead">
+                                    Comece a criar a melhor experiência de usuário possível para seus clientes
+                                </p> -->
+                            </div>
+                            <div class="col-12">
+                                <form id="smartwizard-validation" class="wizard wizard-primary" action="/NovoCliente"
+                                    method="post">
+                                    <ul class="nav">
+                                        <li class="nav-item"><a class="nav-link" href="#validation-step-1">Primeiro
+                                                Passo<br /><small>Dados Pessoais</small></a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#validation-step-2">Segundo
+                                                Passo<br /><small>Auxiliares</small></a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#validation-step-3">Terceiro
+                                                Passo<br /><small>Conclusão</small></a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div id="validation-step-1" class="tab-pane" role="tabpanel">
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Nome completo
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <input id="nome" name="nome" type="text" class="form-control required">
+                                            </div>
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Senha
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <input id="senha" name="senha" type="password"
+                                                    class="form-control required">
+                                            </div>
+                                            <div class="mb-0 error-placeholder">
+                                                <label class="form-label">Confirmar senha
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <input id="senha2" name="senha2" type="password"
+                                                    class="form-control required">
+                                            </div>
+                                            <a class="fs-5 mt-3" href="/login">Já tem uma conta?</a>
+                                        </div>
+                                        <div id="validation-step-2" class="tab-pane" role="tabpanel">
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Telefone
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <input id="telefone" name="telefone" type="text"
+                                                    class="form-control required">
+                                            </div>
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Username
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <input id="username" name="username" type="text"
+                                                    class="form-control required">
+                                            </div>
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Email
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <input id="email" name="email" type="text"
+                                                    class="form-control required email">
+                                            </div>
+                                            <div class="mb-0 error-placeholder">
+                                                <label class="form-label">Nif</label>
+                                                <input id="nif" name="nif" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div id="validation-step-3" class="tab-pane" role="tabpanel">
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Provincia
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <select required class="form-control " name="provincia" id="slctprovincia" onchange="populate(this.id,'slctmunicipio')" autofocus>
+								  
+                                                    <option disabled="disabled" selected="selected"> Escolha a província</option>
+                                                    <option value="luanda">Luanda</option>
+                                                       <option value="benguela">Benguela</option>
+                                                       <option value="bengo">Bengo</option>
+                                                       <option value="bié">Bié</option>
+                                                       <option value="cabinda">Cabinda</option>
+                                                       <option value="cuando-cubango">Cuando-Cubango</option>
+                                                       <option value="cuanza norte">Cuanza Norte</option>
+                                                       <option value="cuanza sul">Cuanza Sul</option>
+                                                       <option value="cunene">Cunene</option>
+                                                       <option value="huambo">Huambo</option>
+                                                       <option value="huíla">Huíla</option>
+                                                       <option value="lunda norte">Lunda Norte</option>
+                                                       <option value="lunda sul">Lunda Sul</option>
+                                                       <option value="malange">Malange</option>
+                                                       <option value="moxico">Moxico</option>
+                                                       <option value="namibe">Namibe</option>
+                                                       <option value="uíge">Uíge</option>
+                                                       <option value="zaire">Zaire</option>
+                                                  
+                                                  </select>
+                                            </div>
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Municipio/Cidade
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <select autofocus required name="municipio" id="slctmunicipio" class="form-control"> <option disabled="disabled" selected="selected"> Escolha o municipio</option></select> 
+                                            </div>
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-label">Endereço
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <input id="endereco" name="endereco" type="text"
+                                                    class="form-control required ">
+                                            </div>
+                                            <div class="mb-3 error-placeholder">
+                                                <label class="form-check">
+
+                                                    <input checked type="checkbox" class="form-check-input">
+                                                    <span class="form-check-label">Eu concordo com os termos e
+                                                        condições</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/Dash/js/ApiProvincia-municipio.js"></script>
+    <script src="/Dash/js/app.js"></script>
+    <script src="/axios/axios.min.js"></script>
+    <script src="/sweetalert/sweetalert2.all.min.js"></script>
+    <% if(errado.length>0) {%>
+        <script>
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'error',
+                title: '<%=errado %>'
+            })
+        </script>
+        <% }%>
+            <script>
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                document.addEventListener("DOMContentLoaded", function () {
+                    $("#smartwizard-default-primary").smartWizard({
+                        theme: "default",
+                        showStepURLhash: false
+                    });
+                    $("#smartwizard-default-success").smartWizard({
+                        theme: "default",
+                        showStepURLhash: false
+                    });
+                    $("#smartwizard-default-danger").smartWizard({
+                        theme: "default",
+                        showStepURLhash: false
+                    });
+                    $("#smartwizard-default-warning").smartWizard({
+                        theme: "default",
+                        showStepURLhash: false
+                    });
+                    $("#smartwizard-arrows-primary").smartWizard({
+                        theme: "arrows",
+                        showStepURLhash: false
+                    });
+                    $("#smartwizard-arrows-success").smartWizard({
+                        theme: "arrows",
+                        showStepURLhash: false
+                    });
+                    $("#smartwizard-arrows-danger").smartWizard({
+                        theme: "arrows",
+                        showStepURLhash: false
+                    });
+                    $("#smartwizard-arrows-warning").smartWizard({
+                        theme: "arrows",
+                        showStepURLhash: false
+                    });
+                    // Validation
+                    var $validationForm = $("#smartwizard-validation");
+                    $validationForm.validate({
+                        errorPlacement: function errorPlacement(error, element) {
+                            $(element).parents(".error-placeholder").append(
+                                error.addClass("invalid-feedback small d-block")
+                            )
+                        },
+                        highlight: function (element) {
+                            $(element).addClass("is-invalid");
+                        },
+                        unhighlight: function (element) {
+                            $(element).removeClass("is-invalid");
+                        },
+                        rules: {
+                            "wizard-confirm": {
+                                equalTo: "input[name=\"wizard-password\"]"
+                            }
+                        }
+                    });
+                    $validationForm
+                        .smartWizard({
+                            autoAdjustHeight: false,
+                            backButtonSupport: false,
+                            useURLhash: false,
+                            showStepURLhash: false,
+                            toolbarSettings: {
+                                toolbarExtraButtons: [$("<button  class=\"btn btn-submit btn-primary\" type=\"button\">Cadastrar</button>")]
+                            }
+                        })
+                        .on("leaveStep", function (e, anchorObject, stepNumber, stepDirection) {
+                            if (stepDirection === 1) {
+                                return $validationForm.valid();
+                            }
+                            return true;
+                        });
+                    $validationForm.find(".btn-submit").on("click", function () {
+                        if (!$validationForm.valid()) {
+                            return;
+                        }
+
+
+                        const nome = document.getElementById('nome').value;
+                        const email = document.getElementById('email').value;
+                        const username = document.getElementById('username').value;
+                        const telefone = document.getElementById('telefone').value;
+                        const senha = document.getElementById('senha').value;
+                        const senha2 = document.getElementById('senha2').value;
+                        const nif = document.getElementById('nif').value;
+                        const provincia = document.getElementById('slctprovincia').value;
+                        const municipio = document.getElementById('slctmunicipio').value;
+                        const endereco= document.getElementById('endereco').value;
+            
+                        let Dados={nome, telefone, senha, senha2, nif, email, username, provincia, municipio, endereco}
+
+
+                        axios.post('http://localhost:8080/NovoCliente',  Dados ).then(data => {
+                            if (data.data.erro) {
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: data.data.erro
+                                })
+                            } else if (data.data.certo) {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: data.data.certo
+                                })
+                                window.location="/login"
+                            } else {
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: data.data.certo
+                                })
+                            }
+                        })
+                        .catch(e => {
+                                console.log(e);
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: 'Erro de conexão'
+                                })
+                            });
+                        return false;
+                    });
+                });
+            </script>
+
+</body>
+
+
+<!-- Mirrored from appstack.bootlab.io/pages-sign-up.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:36 GMT -->
+
+</html>

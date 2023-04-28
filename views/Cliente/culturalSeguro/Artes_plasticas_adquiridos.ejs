@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from appstack.bootlab.io/ui-carousel.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<%- include('../Partes/head')  %>
+<!--
+  HOW TO USE: 
+  data-theme: default (default), dark, light
+  data-layout: fluid (default), boxed
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+	<div class="wrapper">
+		<%- include('../Partes/sidebar')  %>
+		<div class="main">
+			<%- include('../Partes/nav')  %>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+				
+					<div class="row">
+
+						<div class="col-12 col-md-6 col-lg-4">
+							<div class="card">
+								<img class="card-img-top" src="/Dash/img/photos/unsplash-1.jpg" alt="Unsplash">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Card with image and links</h5>
+								</div>
+								<div class="card-body">
+									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+									<a href="#" class="btn btn-primary">Acessar Galeria</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-6 col-lg-4">
+							<div class="card">
+								<img class="card-img-top" src="/Dash/img/photos/unsplash-2.jpg" alt="Unsplash">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Card with image and button</h5>
+								</div>
+								<div class="card-body">
+									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+									<a href="#" class="btn btn-primary">Acessar Galeria</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-6 col-lg-4">
+							<div class="card">
+								<img class="card-img-top" src="/Dash/img/photos/unsplash-3.jpg" alt="Unsplash">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Card with image and list</h5>
+								</div>
+								<div class="card-body">
+									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+									<a href="#" class="btn btn-primary">Acessar Galeria</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					
+
+				</div>
+			</main>
+
+			<%- include('../Partes/footer')  %> 
+		</div>
+	</div>
+
+	<script src="/Dash/js/app.js"></script>
+	<script src="/sweetalert/sweetalert2.all.min.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Datatables with Buttons
+			var datatablesButtons = $("#datatables-buttons").DataTable({
+				responsive: true,
+				lengthChange: !1,
+				buttons: ["copy", "print"]
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
+		});
+	</script>
+
+</body>
+
+
+<!-- Mirrored from appstack.bootlab.io/ui-carousel.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:37 GMT -->
+</html>

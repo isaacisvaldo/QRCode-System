@@ -1,0 +1,180 @@
+<nav id="sidebar" class="sidebar">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" href="/cliente">
+            <span class="align-middle me-3">DigitalSeguros</span>
+        </a>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-header">
+                Area Administrativa
+            </li>
+            <li class="sidebar-item active">
+                <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
+                    <i class="align-middle" data-feather="sliders"></i> <span
+                        class="align-middle">Dashboards</span>
+                    <span class="badge badge-sidebar-primary">1</span>
+                </a>
+                <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show"
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="/cliente">Analise Geral</a></li>
+
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="layout"></i> <span class="align-middle">Cultural Seguro</span>
+                </a>
+                <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="/Musicas_adquiridas">Musicas</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="/Artes_plasticas_adquiridos">Artes</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="/Bilhetes_eventos_adquiridos">Evento</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="">Livro</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="/Videos_Digital_seguros">Video</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="/Galerias_fotos">Galeria fotos</a></li>
+                    <%  if(cliente.acesso_Cultural == 2){%> 
+                    <li class="sidebar-item"><a class="sidebar-link" href="">Painel Artista</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="">Relatório operação</a></li>
+                    <%} else if(cliente.acesso_Cultural == 3){%> 
+                        <li class="sidebar-item"><a class="sidebar-link" href="">Painel Escritor</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="">Relatório operação</a></li>
+                        
+                        <% } else if(cliente.acesso_Cultural == 4){%> 
+                        <li class="sidebar-item"><a class="sidebar-link" href="">Painel Musico</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="">Relatório operação</a></li>
+                        
+                        <% }else if(cliente.acesso_Cultural == 5){%> 
+                        <li class="sidebar-item"><a class="sidebar-link" href="">Painel Organizador</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="">Relatório operação</a></li>
+                        
+                        <%}%> 
+                </ul>
+            </li>
+            <!-- <li class="sidebar-item">
+               1 publico; 2 artistaP ;3 escritor, 4 musico, 5 OrganizadorE
+                <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign In</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign Up</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset
+                            Password</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404 Page</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500 Page</a></li>
+                </ul>
+            </li> -->
+            <li class="sidebar-item">
+                <a data-bs-target="#documentation" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="book-open"></i> <span
+                        class="align-middle">Leasing Seguro</span>
+                </a>
+                <ul id="documentation" class="sidebar-dropdown list-unstyled collapse "
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="/MeusPacotes">Meus Pacotes</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="/Listar_Minhas_Solicitacoes">Lista Solicitação(leasing)</a></li>
+                    <%  if(cliente.acesso_Leasing == 2){%> 
+                        <li class="sidebar-header">
+                            Area Investidor
+                        </li>
+                         <li class="sidebar-item">
+            
+                            <ul id="form-plugins" class="sidebar-dropdown list-unstyled collapse "
+                                data-bs-parent="#sidebar">
+            
+                            </ul>
+                           
+                                <li class="sidebar-item"><a class="sidebar-link" href="/painelInvestidor">Painel Investidor</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/meusInvestimentos">Meus Investimentos</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/SolicitarMovimentoConta">Solicitar Movimento</a></li>
+                        </li>
+                        <%} else{%>  
+                        <div class="sidebar-cta">
+                            <div class="sidebar-cta-content">
+                                <strong class="d-inline-block mb-2">Torna-se investidor</strong>
+                                <div class="mb-3 text-sm">
+                                    Obtenha um lucro de 20% do seu valor em cada operação
+                                </div>
+            
+                                <div class="d-grid">
+                                    <a href="/form_tornarInvestidor" class="btn btn-primary" >Iniciar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%> 
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Shop Seguro</span>
+                </a>
+                <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">   
+                    <li class="sidebar-item"><a class="sidebar-link" href="/produtosComprados">Produtos Aquiridos</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="/EntregasMarcadas">Entregas Marcadas</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="/listaregistoCompras">Regitos de Compras</a></li>
+                    </li>
+                    <%  if(cliente.acesso_Ecommerce == 2){%> 
+                        <li class="sidebar-header">
+                            Area Vendedor
+                        </li>
+                         <li class="sidebar-item">
+            
+                            <ul id="form-plugins" class="sidebar-dropdown list-unstyled collapse "
+                                data-bs-parent="#sidebar">
+                            </ul>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/PainelVendedor">Analise Geral</a></li>
+                                <li class="sidebar-item"><a class="sidebar-link" href="/meusProdutos">Meus Produtos</a></li>
+                        </li>
+                        <%}  else{%>  
+                        <div class="sidebar-cta">
+                            <div class="sidebar-cta-content">
+                                <strong class="d-inline-block mb-2">Torna-se Vendedor</strong>
+                                <div class="mb-3 text-sm">
+                                    Obtenha um lucro de 20% do seu valor em cada Venda
+                                </div>
+            
+                                <div class="d-grid">
+                                    <a href="/form_tornarVendedor" class="btn btn-primary" >Iniciar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%> 
+                </ul>
+            </li>
+            <li class="sidebar-header">
+                Sistema Geral
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="/Feedbak">
+                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Feedback</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
+                Plugins e complementos
+            </li>
+            <!-- 
+            <li class="sidebar-item">
+                <a data-bs-target="#form-plugins" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Solicitações</span>
+                </a>
+                <ul id="form-plugins" class="sidebar-dropdown list-unstyled collapse "
+                    data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-advanced-inputs.html">Advanced
+                            Inputs</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-editors.html">Editors</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-validation.html">Validation</a>
+                    </li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-wizard.html">Wizard</a></li> 
+                </ul>
+            </li>
+              
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="/BatePapo">
+                    <i class="align-middle" data-feather="message-circle"></i><span
+                        class="align-middle">Bate Papo</span>
+                </a>
+            </li>
+            -->
+            
+        </ul>
+
+    </div>
+</nav>

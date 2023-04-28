@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from appstack.bootlab.io/pages-chat.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<%- include('./Partes/head') %>
+<!--
+  HOW TO USE: 
+  data-theme: default (default), dark, light
+  data-layout: fluid (default), boxed
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+	<div class="wrapper">
+		<%- include('./Partes/sidebar') %>
+		<div class="main">
+			<%- include('./Partes/nav') %>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="col-12 col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title">Feedbak</h5>
+								<h6 class="card-subtitle text-muted">Deixa o seu ponto de Vista ou uma inquietação a respeito da Plataforma.</h6>
+							</div>
+							<div class="card-body text-center">
+								<p>O seu Ponto de Vista servirá de grande ajuda para continuarmos a aprimorar os nossos serviços,para garantirmos a sua satisfação.</p>
+
+								
+								<!-- BEGIN  modal -->
+								<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#sizedModalMd"> Dar um Feedbak</button>
+								<div class="modal fade" id="sizedModalMd" tabindex="-1" role="dialog" aria-hidden="true">
+									<div class="modal-dialog modal-md" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title">Medium modal</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<form action="/EnviarFeedbak" method="post">
+											<div class="modal-body m-3">
+												
+													
+														<textarea class="form-control" placeholder="descreva a sua inquietação" id="floatingTextarea1" required name="comentario" style="height: 100px"></textarea>
+												
+												
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fechar</button>
+												<button type="submit" class="btn btn-primary">Enviar Feedback</button>
+											</div>
+										</form>
+										</div>
+									</div>
+								</div>
+								<!-- END  modal -->
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+
+			<%- include('./Partes/footer') %>
+		</div>
+	</div>
+
+	<script src="/Dash/js/app.js"></script>
+	<script src="/sweetalert/sweetalert2.all.min.js"></script>
+
+	<script>
+		// Chat
+		document.addEventListener("DOMContentLoaded", function() {
+			$('.chat-messages').scrollTop($('.chat-messages')[0].scrollHeight);
+		});
+	</script>
+	 <% if(errado.length >0) {%>
+		<script>
+	var Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+	toast.addEventListener('mouseenter', Swal.stopTimer)
+	toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+  })
+  Toast.fire({
+  icon: 'error',
+  title: '<%=errado %>'
+  })
+		</script>
+	   
+		<% }else if(certo.length >0) {%>
+		  <script>
+	
+  const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+	toast.addEventListener('mouseenter', Swal.stopTimer)
+	toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+  })
+  
+  Toast.fire({
+  icon: 'success',
+  title: `<%= certo %>`
+  })
+			
+		  </script>
+		  <% }%>
+</body>
+
+
+<!-- Mirrored from appstack.bootlab.io/pages-chat.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Nov 2022 19:15:36 GMT -->
+</html>
