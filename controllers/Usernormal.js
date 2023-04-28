@@ -9,11 +9,20 @@ class ClienteController {
 async index(req, res) {
 
 
-      res.render('login')
+      res.render('login',{certo:req.flash('certo'),errado:req.flash('errado')})
     } catch(error) {
         res.json({ erro: "Ocorreu um problema" });
         console.log(error)
     }
+//User Logado
+    async Dashbord_user(req, res) {
+
+
+        res.render('User/index',{certo:req.flash('certo'),errado:req.flash('errado')})
+      } catch(error) {
+          res.json({ erro: "Ocorreu um problema" });
+          console.log(error)
+      }
 
 }
 module.exports = new ClienteController();

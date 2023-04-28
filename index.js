@@ -7,7 +7,7 @@ const cors =require("cors")
 const  route = require('./routes/routes');
 //const script = require('./scripts/default')
 //Models
-const BD = require('./config/database')
+const BD = require('./database/database')
 const port = process.env.PORT || 3000;
 // Fim Models
 // View engine
