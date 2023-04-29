@@ -15,11 +15,21 @@ async index(req, res) {
         console.log(error)
     }
 //User Logado
-    async Dashbord_user(req, res) {
-
-
-        res.render('User/index',{certo:req.flash('certo'),errado:req.flash('errado')})
-      } catch(error) {
+    async form_login(req, res) {
+        res.render('user/form/login',{ 
+         errado: req.flash("errado"),
+        info: req.flash("info"),
+        certo: req.flash("certo"),})
+      } catch(error){
+          res.json({ erro: "Ocorreu um problema" });
+          console.log(error)
+      }
+      async registro(req, res) {
+        res.render('user/form/registro',{ 
+         errado: req.flash("errado"),
+        info: req.flash("info"),
+        certo: req.flash("certo"),})
+      } catch(error){
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
       }
