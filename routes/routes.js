@@ -3,7 +3,7 @@ const router = express.Router();
 //Controllers
 const UserController =require ('../controllers/Usernormal')
 
-//Home Page Digital
+//Home Page User Normal
 router.get('/' ,UserController.index); 
-router.get('/Dashbord_user' ,UserController.Dashbord_user); 
+
 module.exports = router;

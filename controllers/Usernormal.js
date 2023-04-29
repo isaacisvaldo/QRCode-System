@@ -9,7 +9,7 @@ class ClienteController {
 async index(req, res) {
 
 
-      res.render('login',{certo:req.flash('certo'),errado:req.flash('errado')})
+      res.render('user/index',{certo:req.flash('certo'),errado:req.flash('errado')})
     } catch(error) {
         res.json({ erro: "Ocorreu um problema" });
         console.log(error)

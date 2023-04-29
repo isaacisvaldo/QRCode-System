@@ -39,6 +39,7 @@
     "mysql2": "^3.0.1",
     "node-cron": "^3.0.2",
     "nodecron": "^0.2.0",
+    "nodemon": "^2.0.22",
     "sequelize": "^6.25.8"
   }
 }
