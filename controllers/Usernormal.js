@@ -14,6 +14,18 @@ async index(req, res) {
         res.json({ erro: "Ocorreu um problema" });
         console.log(error)
     }
+    async painel_user(req, res) {
+        res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado')})
+      } catch(error) {
+          res.json({ erro: "Ocorreu um problema" });
+          console.log(error)
+      }
+      async perfil_user(req, res) {
+        res.render('user/perfil_user',{certo:req.flash('certo'),errado:req.flash('errado')})
+      } catch(error) {
+          res.json({ erro: "Ocorreu um problema" });
+          console.log(error)
+      }
 //User Logado
     async form_login(req, res) {
         res.render('user/form/login',{ 
