@@ -1,2 +1,2 @@
 # QRCode-System
-Siatema que gera Codigos QR
+Sistema de Estacionamento Automatizado (Qrcod)
