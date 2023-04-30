@@ -13,11 +13,7 @@ exports.up = function(knex) {
         table.string('senha_user').notNullable()
         table.string('nif_user').notNullable()
         table.integer('estado_user').notNullable().defaultTo('1');
-        table.integer('perfil_user').unsigned();
-        table.foreign('perfil_user')
-        .references('perfil_user.idperfil_user')
-        .onDelete('CASCADE')
-        .onUpdate('CASCADE');
+   
         table.string('data_CriacaoUser').notNullable().defaultTo(knex.fn.now())
        
       

@@ -1,27 +1,44 @@
 
 const bcrypt = require('bcryptjs');
 const axios = require("axios");
+const BD = require('../database/database')
 
 
-class ClienteController {
+class UserController {
 
 
 async index(req, res) {
 
-
-      res.render('user/index',{certo:req.flash('certo'),errado:req.flash('errado')})
+  const user = !req.session.user ? undefined :req.session.user.id 
+  const admin= !req.session.admin ? undefined :req.session.admin.id
+  console.log(admin)
+      res.render('user/index',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin})
     } catch(error) {
         res.json({ erro: "Ocorreu um problema" });
         console.log(error)
     }
-    async painel_user(req, res) {
-        res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado')})
+      async painel_user(req, res) {
+      const user = !req.session.user ? undefined :req.session.user.id 
+      const admin= !req.session.admin ? undefined :req.session.admin.id
+      if(req.session.admin) {
+      res.redirect('/Dashboard')
+      }else{
+        const usuario = await BD("users")
+        .where("id_user", req.session.user.id)
+        .first();
+console.log(user)
+      res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin})
+      }
+       
+  
       } catch(error) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
       }
       async perfil_user(req, res) {
-        res.render('user/perfil_user',{certo:req.flash('certo'),errado:req.flash('errado')})
+        const user = !req.session.user ? undefined :req.session.user.id 
+        const admin= !req.session.admin ? undefined :req.session.admin.id
+        res.render('user/perfil_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin})
       } catch(error) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
@@ -45,6 +62,88 @@ async index(req, res) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
       }
+      async registrando (req , res){
+      try {
+        const {username_user,nome_user,email_user,telefone_user,senha,nif_user,senha2}= req.body
+        const image_user = (req.file) ? req.file.filename :'user.png';
+        console.log(username_user,nome_user,email_user,telefone_user,senha,nif_user,senha2)
+
+        var salt = bcrypt.genSaltSync(10);
+        const senha_user = bcrypt.hashSync(senha, salt);
+        const users = await BD('users').insert({ image_user,username_user,nome_user,email_user,telefone_user,senha_user,nif_user})
+        req.flash('certo', " Conta criada com sucesso");
+        res.redirect('/form_login')
+         
+      } catch (error) {
+        req.flash('errado', " Erro Interno");
+        res.redirect('/form_login')  
+      }       
+  }
+  async login(req, res) {
+    try {
+      const { email, senha } = req.body;
+    if (email.length != 0 || !/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email)) {
+      const user = await BD("users")
+        .where("username_user", email)
+        .orWhere("email_user", email)
+       
+        .first();
+        const admin = await BD("admin")
+        .where("username_admin", email)
+        .orWhere("email_admin", email)
+      
+        .first();
+      
+        
+      
+      if (user) {
+        console.log(user,senha);
+        var correto = bcrypt.compareSync(senha, user.senha_user);
+        console.log(correto)
+        if (correto){
+          console.log("entrou");
+          req.session.user = {
+            id:user.id_user,
+            perfil:user.nome_perfil,
+            estado_perfil:user.estado_perfil 
+          }  
+           res.redirect("/"); 
+            }else{
+              req.flash("errado", "Credencias Inválidas !");
+              res.redirect("/form_login");
+            }   
+      }else if(admin){
+        console.log(admin,senha);
+        var correto = bcrypt.compareSync(senha, admin.senha_admin);
+        console.log(correto)
+        if (correto){
+          console.log("entrou");
+          req.session.admin = {
+            id:admin.id_admin
+          
+          }  
+           res.redirect("/"); 
+            }else{
+              req.flash("errado", "Credencias Inválidas !");
+              res.redirect("/form_login");
+            }  
+      }else{
+        req.flash("errado", "E-mail Desconhecido !");
+        res.redirect("/form_login");
+      }
+    } else {
+      req.flash("errado", "E-mail Incorreto !");
+      res.redirect("/form_login");
+    }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+  async logout(req, res) {
+    req.session.destroy();
+    res.redirect("/");
+  }
 
 }
-module.exports = new ClienteController();
+module.exports = new UserController();

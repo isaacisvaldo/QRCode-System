@@ -34,23 +34,38 @@
 									
 								</div>
 							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Listagem <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Acção</a>
-									<a class="dropdown-item" href="#">Registos</a>
-									<a class="dropdown-item" href="/perfil_user">Meu Perfil </a>
-								</div>
-							</li>
+							<% if(admin == undefined){%>
+								<li class="nav-item dropdown dropdown-slide">
+									<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Listagem <span><i class="fa fa-angle-down"></i></span>
+									</a>
+									<!-- Dropdown list -->
+									<div class="dropdown-menu dropdown-menu-right">
+										<a class="dropdown-item" href="#">Acção</a>
+										<a class="dropdown-item" href="#">Registos</a>
+										<a class="dropdown-item" href="/perfil_user">Meu Perfil </a>
+									</div>
+								</li>
+								<% }%>
+							
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
-							
-							<li class="nav-item">
+							<% if(user == undefined){%>
+								<% if(admin == undefined){%>
+                            <li class="nav-item">
 								<a class="nav-link add-button" href="/form_login">Login</a>
 							</li>
+							<% } else{%>
+								<li class="nav-item">
+								<a class="nav-link add-button" href="/logout">Sair</a>
+							</li>
+							<% }%>
+							<% } else{%>
+								<li class="nav-item">
+								<a class="nav-link add-button" href="/logout">Sair</a>
+							</li>
+							<% }%>
+							
 						</ul>
 					</div>
 				</nav>

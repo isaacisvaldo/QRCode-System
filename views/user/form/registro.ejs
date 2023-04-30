@@ -261,11 +261,11 @@
           <div class="col-lg-6 d-flex justify-content-center align-items-center min-vh-lg-100">
             <div class="w-100 content-space-t-4 content-space-t-lg-2 content-space-b-1" style="max-width: 25rem;">
               <!-- Form -->
-              <form class="js-validate needs-validation" novalidate method="post" action="registar_se">
+              <form class="js-validate needs-validation" novalidate method="post" action="/registrando">
                 <div class="text-center">
                   <div class="mb-5">
                     <h1 class="display-5">Faça seu registro</h1>
-                    <p>Já está registrado? <a class="link" href="/fom_login">Clique aqui</a></p>
+                    <p>Já está registrado? <a class="link" href="/form_login">Clique aqui</a></p>
                   </div>
 
 
@@ -280,15 +280,15 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="mb-4">
-                      <label class="form-label" for="signupSrEmail">Seu NIP</label>
-                      <input type="text" class="form-control form-control-lg" name="nip_user" id="signupSrEmail" placeholder="" aria-label="MarkDomingos@site.com" required>
+                      <label class="form-label" for="signupSrEmail">Seu Nome</label>
+                      <input type="text" class="form-control form-control-lg" name="nome_user" id="signupSrEmail" placeholder="" aria-label="MarkDomingos@site.com" required>
                       <span class="invalid-feedback">Por favor entre com seu NIP valido.</span>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="mb-4">
-                      <label class="form-label" for="signupSrEmail">Seu NIF</label>
-                      <input type="text" class="form-control form-control-lg" name="nif_user" id="signupSrEmail" placeholder="" aria-label="MarkDomingos@site.com">
+                      <label class="form-label" for="signupSrEmail">username</label>
+                      <input type="text" class="form-control form-control-lg" name="username_user" id="signupSrEmail" placeholder="" aria-label="MarkDomingos@site.com">
                       <span class="invalid-feedback">Por favor entre com seu NIP valido.</span>
                     </div>
                   </div>
@@ -297,8 +297,8 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="mb-4">
-                      <label class="form-label" for="signupSrEmail">Contacto</label>
-                      <input type="text" class="form-control form-control-lg" name="telefone_user" id="signupSrEmail" placeholder="+244" aria-label="MarkDomingos@site.com" required>
+                      <label class="form-label" for="signupSrEmail">NIF</label>
+                      <input type="text" class="form-control form-control-lg" name="nif_user" id="signupSrEmail" placeholder="+244" aria-label="MarkDomingos@site.com" required>
                       <span class="invalid-feedback">Por favor entre com seu NIP valido.</span>
                     </div>
                   </div>
@@ -311,9 +311,22 @@
                   </div>
 
                 </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="mb-4">
+                      <label class="form-label" for="signupSrEmail">Telefone</label>
+                      <input type="text" class="form-control form-control-lg" name="telefone_user" id="signupSrEmail" placeholder="+244" aria-label="MarkDomingos@site.com" required>
+                      <span class="invalid-feedback">Por favor entre com seu NIP valido.</span>
+                    </div>
+                  </div>
+                 
+
+                </div>
+              
 
 
 
+               
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- Form -->
@@ -321,7 +334,7 @@
                       <label class="form-label" for="signupSrPassword">Senha</label>
 
                       <div class="input-group input-group-merge" data-hs-validation-validate-class>
-                        <input type="password" class="js-toggle-password form-control form-control-lg" name="senha_user" id="signupSrPassword" placeholder="8+ caracteres necessários" aria-label="8+ caracteres necessários" required minlength="8" data-hs-toggle-password-options='{
+                        <input type="password" class="js-toggle-password form-control form-control-lg" name="senha" id="signupSrPassword" placeholder="8+ caracteres necessários" aria-label="8+ caracteres necessários" required minlength="8" data-hs-toggle-password-options='{
                                    "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
                                    "defaultClass": "bi-eye-slash",
                                    "showClass": "bi-eye",
@@ -343,7 +356,7 @@
                       <label class="form-label" for="signupSrConfirmPassword">Confirmar senha</label>
 
                       <div class="input-group input-group-merge" data-hs-validation-validate-class>
-                        <input type="password" class="js-toggle-password form-control form-control-lg" name="senha_user2" id="signupSrConfirmPassword" placeholder="8+ caracteres necessários" aria-label="8+ caracteres necessários" required minlength="8" data-hs-toggle-password-options='{
+                        <input type="password" class="js-toggle-password form-control form-control-lg" name="senha2" id="signupSrConfirmPassword" placeholder="8+ caracteres necessários" aria-label="8+ caracteres necessários" required minlength="8" data-hs-toggle-password-options='{
                                    "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
                                    "defaultClass": "bi-eye-slash",
                                    "showClass": "bi-eye",
