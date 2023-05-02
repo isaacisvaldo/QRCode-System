@@ -61,7 +61,14 @@ async index(req, res) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
       }
-//User Nao Logado
+      async salvar_reserva(req, res) {
+        const {matricula_viatura,	estado_reserva,	user_id,	id_area	,	hora_entrada	,hora_saida	 }=req.body
+        res.render('user/form_reserva',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin})
+      } catch(error) {
+          res.json({ erro: "Ocorreu um problema" });
+          console.log(error)
+      }
+//User Nao Logado 
     async form_login(req, res) {
         res.render('user/form/login',{ 
          errado: req.flash("errado"),
