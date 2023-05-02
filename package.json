@@ -13,6 +13,7 @@
     "knex:seed": "npx knex seed:run",
     "knex:migrationEspecifica": "npx knex migrate:up"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IsaacIsvaldo/Digital-Seguro.git"
