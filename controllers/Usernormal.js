@@ -8,7 +8,6 @@ class UserController {
 
 
 async index(req, res) {
-
   const user = !req.session.user ? undefined :req.session.user.id 
   const admin= !req.session.admin ? undefined :req.session.admin.id
   console.log(admin)
