@@ -18,6 +18,8 @@ exports.up = function (knex) {
             .onDelete('CASCADE')
             .onUpdate('CASCADE');
         table.string('data_Criacaominha_reserva').notNullable().defaultTo(knex.fn.now())
+        table.time('hora_entrada').notNullable();
+        table.time('hora_saida').notNullable();
 
 
     })
