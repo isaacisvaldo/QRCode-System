@@ -35,6 +35,7 @@ async index(req, res) {
            if (erro) {
               res.render("error/404")
            } else {
+            //Ao renderizar devo fazer duas pesquisas nas reservas as que estão ativas e as que não estão ativas 
             
               res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin,src,reserva})
      
