@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('partials/heade'); -%>
+
+<body class="body-wrapper">
+
+
+	<%- include('partials/section'); -%>
+<!--==================================
+=            User Profile            =
+===================================-->
+
+<section class="user-profile section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
+				<div class="sidebar">
+					<!-- User Widget -->
+					<div class="widget user-dashboard-profile">
+						<!-- User Image -->
+						<div class="profile-thumb">
+							<img src="user/images/user/user-thumb.jpg" alt="" class="rounded-circle">
+						</div>
+						<!-- User Name -->
+						<h5 class="text-center">Isaac Isvaldo</h5>
+						<p>Joined February 06, 2017</p>
+					</div>
+					<!-- Dashboard Links -->
+					
+				</div>
+			</div>
+			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+				<!-- Edit Personal Info -->
+				<div class="widget personal-info">
+					<h3 class="widget-header user">Marcando Reserva</h3>
+					<form action="#">
+						<!-- First Name -->
+						<div class="form-group">
+						    <label for="first-name">First Name</label>
+						    <input type="text" class="form-control" id="first-name">
+						</div>
+						<!-- Last Name -->
+						<div class="form-group">
+						    <label for="last-name">Last Name</label>
+						    <input type="text" class="form-control" id="last-name">
+						</div>
+						<!-- File chooser -->
+						
+						<!-- Comunity Name -->
+						<div class="form-group">
+						    <label for="comunity-name">Comunity Name</label>
+						    <input type="text" class="form-control" id="comunity-name">
+						</div>
+						<!-- Checkbox -->
+						<div class="form-check">
+						  <label class="form-check-label" for="hide-profile">
+						    <input class="form-check-input" type="checkbox" value="" id="hide-profile">
+						    Hide Profile from Public/Comunity
+						  </label>
+						</div>
+						<!-- Zip Code -->
+						<div class="form-group">
+						    <label for="zip-code">Zip Code</label>
+						    <input type="text" class="form-control" id="zip-code">
+						</div>
+						<!-- Submit button -->
+						<button class="btn btn-transparent">Submeter Regitro</button>
+					</form>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--============================
+=            Footer            =
+=============================-->
+<%- include('partials/footer'); -%>
+</body>
+
+</html>

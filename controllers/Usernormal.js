@@ -53,7 +53,15 @@ async index(req, res) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
       }
-//User Logado
+      async form_reserva(req, res) {
+        const user = !req.session.user ? undefined :req.session.user.id 
+        const admin= !req.session.admin ? undefined :req.session.admin.id
+        res.render('user/form_reserva',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin})
+      } catch(error) {
+          res.json({ erro: "Ocorreu um problema" });
+          console.log(error)
+      }
+//User Nao Logado
     async form_login(req, res) {
         res.render('user/form/login',{ 
          errado: req.flash("errado"),

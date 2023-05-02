@@ -14,7 +14,8 @@ router.get('/registro' ,UserController.registro);
 router.post('/registrando' ,UserController.registrando); 
 router.get('/painel_user',user,UserController.painel_user); 
 router.get('/perfil_user',user ,UserController.perfil_user); 
-router.get('/logout' ,UserController.logout); 
+router.get('/logout',UserController.logout); 
+router.get('/form_reserva' ,UserController.form_reserva); 
 
 
 //
