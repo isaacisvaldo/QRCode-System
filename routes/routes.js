@@ -16,6 +16,7 @@ router.get('/painel_user',user,UserController.painel_user);
 router.get('/perfil_user',user ,UserController.perfil_user); 
 router.get('/logout',UserController.logout); 
 router.get('/form_reserva' ,UserController.form_reserva); 
+router.get('/salvar_reserva' ,UserController.salvar_reserva); 
 
 
 //
