@@ -4,9 +4,8 @@
  */
 exports.up = function (knex) {
     return knex.schema.createTable('minha_reserva', (table) => {
-        table.increments('id_area').primary();
+        table.increments('id_minha_reserva').primary();
         table.string('matricula_viatura').notNullable();
-        table.integer('vituras_presentes').notNullable();
         table.integer('estado_reserva').notNullable().defaultTo('1');
         table.integer('id_user').unsigned();
         table.foreign('id_user')

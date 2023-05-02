@@ -2,6 +2,7 @@
 const bcrypt = require('bcryptjs');
 const axios = require("axios");
 const BD = require('../database/database')
+const Qr = require ('qrcode')
 
 
 class UserController {
@@ -26,9 +27,18 @@ async index(req, res) {
         const usuario = await BD("users")
         .where("id_user", req.session.user.id)
         .first();
-console.log(user)
-      res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin})
-      }
+        const url = `${usuario}`;
+        Qr.toDataURL(url, (erro, src) => {
+           if (erro) {
+              res.render("error/errors-404")
+           } else {
+            
+              res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin,src})
+     
+           }
+          })
+
+     }
        
   
       } catch(error) {
