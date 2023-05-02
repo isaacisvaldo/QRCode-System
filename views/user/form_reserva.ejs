@@ -33,37 +33,37 @@
 				<!-- Edit Personal Info -->
 				<div class="widget personal-info">
 					<h3 class="widget-header user">Marcando Reserva</h3>
-					<form action="#">
+					<form action="/salvar_reserva" method="post">
 						<!-- First Name -->
 						<div class="form-group">
-						    <label for="first-name">First Name</label>
+						    <label for="first-name"> Nome</label>
 						    <input type="text" class="form-control" id="first-name">
 						</div>
 						<!-- Last Name -->
 						<div class="form-group">
-						    <label for="last-name">Last Name</label>
+						    <label for="last-name">Email</label>
 						    <input type="text" class="form-control" id="last-name">
 						</div>
 						<!-- File chooser -->
 						
 						<!-- Comunity Name -->
 						<div class="form-group">
-						    <label for="comunity-name">Comunity Name</label>
+						    <label for="comunity-name">Contacto</label>
 						    <input type="text" class="form-control" id="comunity-name">
 						</div>
 						<!-- Checkbox -->
-						<div class="form-check">
-						  <label class="form-check-label" for="hide-profile">
-						    <input class="form-check-input" type="checkbox" value="" id="hide-profile">
-						    Hide Profile from Public/Comunity
-						  </label>
-						</div>
+						
 						<!-- Zip Code -->
 						<div class="form-group">
-						    <label for="zip-code">Zip Code</label>
-						    <input type="text" class="form-control" id="zip-code">
+						    <label for="zip-code">Matricula</label>
+						    <input type="text" class="form-control" id="zip-code" name="matricula">
 						</div>
-						<!-- Submit button -->
+						<div class="form-check">
+							<label class="form-check-label" for="hide-profile">
+							  <input class="form-check-input" type="checkbox" value="" id="hide-profile">
+							  Concordo com os termos !
+							</label>
+						  </div>
 						<button class="btn btn-transparent">Submeter Regitro</button>
 					</form>
 				</div>
