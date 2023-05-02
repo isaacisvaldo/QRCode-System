@@ -27,13 +27,16 @@ async index(req, res) {
         const usuario = await BD("users")
         .where("id_user", req.session.user.id)
         .first();
+        const reserva = await BD("minha_reserva")
+        .where("user_id",req.session.user.id)
+        .select('*');
         const url = `${usuario}`;
         Qr.toDataURL(url, (erro, src) => {
            if (erro) {
-              res.render("error/errors-404")
+              res.render("error/404")
            } else {
             
-              res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin,src})
+              res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin,src,reserva})
      
            }
           })

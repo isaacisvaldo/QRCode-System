@@ -7,8 +7,8 @@ exports.up = function (knex) {
         table.increments('id_minha_reserva').primary();
         table.string('matricula_viatura').notNullable();
         table.integer('estado_reserva').notNullable().defaultTo('1');
-        table.integer('id_user').unsigned();
-        table.foreign('id_user')
+        table.integer('user_id').unsigned();
+        table.foreign('user_id')
             .references('users.id_user')
             .onDelete('CASCADE')
             .onUpdate('CASCADE');
