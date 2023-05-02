@@ -2,11 +2,10 @@
 const bcrypt = require('bcryptjs');
 const axios = require("axios");
 const BD = require('../database/database')
+const Qr = require ('qrcode')
 
 
 class UserController {
-
-
 async index(req, res) {
   const user = !req.session.user ? undefined :req.session.user.id 
   const admin= !req.session.admin ? undefined :req.session.admin.id
@@ -25,9 +24,21 @@ async index(req, res) {
         const usuario = await BD("users")
         .where("id_user", req.session.user.id)
         .first();
-console.log(user)
-      res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin})
-      }
+        const reserva = await BD("minha_reserva")
+        .where("user_id",req.session.user.id)
+        .select('*');
+        const url = `${usuario}`;
+        Qr.toDataURL(url, (erro, src) => {
+           if (erro) {
+              res.render("error/404")
+           } else {
+            //Ao renderizar devo fazer duas pesquisas nas reservas as que estão ativas e as que não estão ativas 
+              res.render('user/painel_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,usuario,admin,src,reserva})
+     
+           }
+          })
+
+     }
        
   
       } catch(error) {
