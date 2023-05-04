@@ -14,7 +14,7 @@ exports.up = function(knex) {
         .references('categoria_area.idcategoria_area')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
-        table.string('data_Criacaoarea').notNullable().defaultTo(knex.fn.now())
+        table.timestamp('data_Criacaoarea').notNullable().defaultTo(knex.fn.now())
        
       
     }) 

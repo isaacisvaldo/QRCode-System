@@ -17,7 +17,7 @@ exports.up = function (knex) {
             .references('area.id_area')
             .onDelete('CASCADE')
             .onUpdate('CASCADE');
-        table.string('data_Criacaominha_reserva').notNullable().defaultTo(knex.fn.now())
+        table.timestamp('data_Criacaominha_reserva').notNullable().defaultTo(knex.fn.now())
         table.time('hora_entrada').notNullable();
         table.time('hora_saida').notNullable();
 

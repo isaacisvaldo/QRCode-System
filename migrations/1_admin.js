@@ -11,7 +11,7 @@ exports.up = function(knex) {
         table.string('email_admin').notNullable();
         table.integer('telefone_admin').notNullable();
         table.string('senha_admin').notNullable()
-        table.string('data_Criacaoadmin').notNullable().defaultTo(knex.fn.now())
+        table.timestamp('data_Criacaoadmin').notNullable().defaultTo(knex.fn.now())
        
       
     }) 
