@@ -6,6 +6,7 @@ const flash = require("express-flash");
 const cors =require("cors")
 const  route = require('./routes/routes');
 const script = require('./script/script')
+const script2 = require('./script/script2')
 //Models
 const BD = require('./database/database')
 const port = process.env.PORT || 3000;
