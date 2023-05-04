@@ -4,7 +4,6 @@ const axios = require("axios");
 const BD = require('../database/database')
 const Qr = require ('qrcode')
 
-
 class UserController {
 async index(req, res) {
   const user = !req.session.user ? undefined :req.session.user.id 
