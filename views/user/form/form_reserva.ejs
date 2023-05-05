@@ -43,25 +43,31 @@
 						<!-- First Name -->
 						<div class="form-group">
 						    <label for="first-name"> Nome</label>
-						    <input type="text" class="form-control" id="first-name">
+						    <input type="text" class="form-control" id="first-name" value="<%-usuario.nome_user%> " disabled>
 						</div>
 						<!-- Last Name -->
 						<div class="form-group">
 						    <label for="last-name">Email</label>
-						    <input type="text" class="form-control" id="last-name">
+						    <input type="text" class="form-control" id="last-name" value="<%-usuario.email_user%> " disabled>
 						</div>
 						<!-- File chooser -->
-						
+						<input type="hidden" class="form-control" id="last-name" name="user_id">
 						<!-- Comunity Name -->
 						<div class="form-group">
-						    <label for="comunity-name">Contacto</label>
-						    <input type="text" class="form-control" id="comunity-name">
+						    <label for="comunity-name">Area Desejado</label>
+							<select name="" id="id_area" class="form-control" required>
+							 <% area_categoria.map(area =>{%>
+								<option value="<%= area.id_area %>"> <%= area.nome_area %></option>
+								<% }) %>
+								
+							</select>
+						  
 						</div>
 						<!-- Checkbox -->
 						
 						<!-- Zip Code -->
 						<div class="form-group">
-						    <label for="zip-code">Matricula</label>
+						    <label for="zip-code">Matricula Viatura*</label>
 						    <input type="text" class="form-control" id="zip-code" name="matricula">
 						</div>
 						<div class="form-check">

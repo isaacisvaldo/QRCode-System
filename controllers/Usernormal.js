@@ -56,12 +56,15 @@ async index(req, res) {
           console.log(error)
       }
       async form_reserva(req, res) {
-        const user = !req.session.user ? undefined :req.session.user.id 
-        const admin= !req.session.admin ? undefined :req.session.admin.id
+        const user = !req.session.user ? undefined :req.session.user.id ;
+        const admin= !req.session.admin ? undefined :req.session.admin.id;
         const usuario = await BD("users")
         .where("id_user", req.session.user.id)
         .first();
-        res.render('user/form/form_reserva',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin,usuario})
+        const area_categoria = await BD("area")
+        .select('*')
+        .join('categoria_area', 'categoria_area.idcategoria_area','=','area.categoria_area');
+        res.render('user/form/form_reserva',{certo:req.flash('certo'),errado:req.flash('errado'),user,area_categoria,admin,usuario})
       } catch(error) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
