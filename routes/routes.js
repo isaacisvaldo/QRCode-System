@@ -16,6 +16,7 @@ router.get('/painel_user',user,UserController.painel_user);
 router.get('/perfil_user',user ,UserController.perfil_user); 
 router.get('/logout',UserController.logout); 
 router.get('/form_reserva',user ,UserController.form_reserva); 
+router.get('/Leitura_CoQr/:id_reserva' ,UserController.Leitura); 
 router.post('/salvar_reserva',user ,UserController.salvar_reserva); 
 
 

@@ -5,6 +5,13 @@ const BD = require('../database/database')
 const Qr = require('qrcode');
 
 class UserController {
+  async Leitura(req, res) {
+    const {id_reserva} = req.params;
+   
+  } catch(error) {
+    res.json({ erro: "Ocorreu um problema" });
+    console.log(error)
+  }
   async index(req, res) {
     
    
@@ -29,14 +36,19 @@ class UserController {
     
         const reserva = await BD('minha_reserva')
           .where("user_id", req.session.user.id)
-          .andWhere('estado_reserva','>' ,1)
+          .andWhere('estado_reserva','<' ,2)
           .join('area', 'area.id_area', '=','minha_reserva.id_area' )
           .join('categoria_area', 'categoria_area.idcategoria_area', '=','area.categoria_area' )
           .select('*');
-          console.log(reserva);
+          const id = await BD('minha_reserva')
+          .where("user_id", req.session.user.id)
+          .andWhere('estado_reserva','<' ,2)
+          .first();
+          console.log(id);
+        
        
         
-      const url = `${usuario}`;
+      const url = `/Leitura_CoQr/:id_reserva${id.id_minha_reserva}`;
       Qr.toDataURL(url, async(erro, src) => {
         if (erro) {
           res.render("error/404")
@@ -89,9 +101,19 @@ class UserController {
     const { matricula_viatura, user_id, id_area } = req.body
     const hora_entrada = '00:00:00';
     const hora_saida = '00:00:00';
-    const users = await BD('minha_reserva').insert({ matricula_viatura, estado_reserva: 0, user_id, id_area, hora_entrada, hora_saida })
-    req.flash('certo', " Area Reservado com sucesso");
-    res.redirect('/painel_user')
+    const reserva = await BD('minha_reserva')
+    .where("user_id", req.session.user.id)
+    .andWhere('estado_reserva','<' ,2)
+    .select('*');
+    if(reserva.length !=0){
+      req.flash('errado', " Ja tens uma Reserva !");
+      res.redirect('/painel_user')
+    }else{
+      const users = await BD('minha_reserva').insert({ matricula_viatura, estado_reserva: 0, user_id, id_area, hora_entrada, hora_saida })
+      req.flash('certo', " Area Reservado com sucesso");
+      res.redirect('/painel_user')
+    }
+   
   } catch(error) {
     res.json({ erro: "Ocorreu um problema" });
     console.log(error)
