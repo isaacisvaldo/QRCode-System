@@ -48,7 +48,7 @@ class UserController {
         
        
         
-      const url = `/Leitura_CoQr/:id_reserva${id.id_minha_reserva}`;
+      const url = `/Leitura_CoQr/${id.id_minha_reserva}`;
       Qr.toDataURL(url, async(erro, src) => {
         if (erro) {
           res.render("error/404")
