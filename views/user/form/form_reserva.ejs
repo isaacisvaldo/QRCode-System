@@ -51,11 +51,11 @@
 						    <input type="text" class="form-control" id="last-name" value="<%-usuario.email_user%> " disabled>
 						</div>
 						<!-- File chooser -->
-						<input type="hidden" class="form-control" id="last-name" name="user_id">
+						<input type="hidden" class="form-control" id="last-name" name="user_id" value="<%-usuario.id_user%> ">
 						<!-- Comunity Name -->
 						<div class="form-group">
 						    <label for="comunity-name">Area Desejado</label>
-							<select name="" id="id_area" class="form-control" required>
+							<select name="id_area"  class="form-control" required>
 							 <% area_categoria.map(area =>{%>
 								<option value="<%= area.id_area %>"> <%= area.nome_area %></option>
 								<% }) %>
@@ -68,7 +68,7 @@
 						<!-- Zip Code -->
 						<div class="form-group">
 						    <label for="zip-code">Matricula Viatura*</label>
-						    <input type="text" class="form-control" id="zip-code" name="matricula">
+						    <input type="text" class="form-control" id="zip-code" name="matricula_viatura">
 						</div>
 						<div class="form-check">
 							<label class="form-check-label" for="hide-profile">
