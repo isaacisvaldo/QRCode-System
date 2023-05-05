@@ -29,6 +29,7 @@ class UserController {
     
         const reserva = await BD('minha_reserva')
           .where("user_id", req.session.user.id)
+          .andWhere('estado_reserva','>' ,1)
           .join('area', 'area.id_area', '=','minha_reserva.id_area' )
           .join('categoria_area', 'categoria_area.idcategoria_area', '=','area.categoria_area' )
           .select('*');
