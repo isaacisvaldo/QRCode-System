@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 const axios = require("axios");
 const BD = require('../database/database')
-const Qr = require ('qrcode')
+const Qr = require ('qrcode');
 
 class UserController {
 async index(req, res) {
@@ -47,7 +47,10 @@ async index(req, res) {
       async perfil_user(req, res) {
         const user = !req.session.user ? undefined :req.session.user.id 
         const admin= !req.session.admin ? undefined :req.session.admin.id
-        res.render('user/perfil_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin})
+        const usuario = await BD("users")
+        .where("id_user", req.session.user.id)
+        .first();
+        res.render('user/perfil_user',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin,usuario})
       } catch(error) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
@@ -55,7 +58,10 @@ async index(req, res) {
       async form_reserva(req, res) {
         const user = !req.session.user ? undefined :req.session.user.id 
         const admin= !req.session.admin ? undefined :req.session.admin.id
-        res.render('user/form_reserva',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin})
+        const usuario = await BD("users")
+        .where("id_user", req.session.user.id)
+        .first();
+        res.render('user/form/form_reserva',{certo:req.flash('certo'),errado:req.flash('errado'),user,admin,usuario})
       } catch(error) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
@@ -91,13 +97,56 @@ async index(req, res) {
       try {
         const {username_user,nome_user,email_user,telefone_user,senha,nif_user,senha2}= req.body
         const image_user = (req.file) ? req.file.filename :'user.png';
-        console.log(username_user,nome_user,email_user,telefone_user,senha,nif_user,senha2)
+        if(nome_user.length < 5){
+          req.flash('errado', "Nome demasiado Curto");
+          res.redirect('/form_login')
+          
+  
+         }else if ((/[A-Z]/.test(username_user))) {
+          console.log((/[A-Z]/.test(username_user)))
+            
+              req.flash('errado', " user nao pode ter letra Maiscula");
+              res.redirect('/form_login')
+          } else if (( /\s/g.test(username_user))) {
+              
+              
+              req.flash('errado', "User nao pode ter espaço");
+              res.redirect('/form_login')
+          } else  if (!(/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email_user))) {
+                  
+                  
+                  req.flash('errado', "E-mail invalido");
+                  res.redirect('/form_login')
+              } else if (senha.length < 8) {
+                      
+                  req.flash('errado', "Senha muito fraca");
+                  res.redirect('/form_login')
+                  } else  if (senha != senha2) {
+                        
+                         
+                          req.flash('errado', "Senhas Diferentes");
+                  res.redirect('/form_login')
+                      } else if (!(/^[9]{1}[0-9]{8}$/.test(telefone_user))) {
+                     
+                         
+                          req.flash('errado', "Numero de Telefone incorreto");
+                          res.redirect('/form_login')
+  
+                      } else if (!(/^[0-9]{9}[A-Z]{2}[0-9]{3}$/.test(nif_user))) {
+                          
+                          
+                          req.flash('errado', "NIF incorreto");
+                          res.redirect('/form_login')
+                      } else { 
+                        var salt = bcrypt.genSaltSync(10);
+                        const senha_user = bcrypt.hashSync(senha, salt);
+                        const users = await BD('users').insert({ image_user,username_user,nome_user,email_user,telefone_user,senha_user,nif_user})
+                        req.flash('certo', " Conta criada com sucesso");
+                        res.redirect('/form_login')
 
-        var salt = bcrypt.genSaltSync(10);
-        const senha_user = bcrypt.hashSync(senha, salt);
-        const users = await BD('users').insert({ image_user,username_user,nome_user,email_user,telefone_user,senha_user,nif_user})
-        req.flash('certo', " Conta criada com sucesso");
-        res.redirect('/form_login')
+                      }
+
+      
          
       } catch (error) {
         req.flash('errado', " Erro Interno");
