@@ -20,7 +20,7 @@
 					<div class="widget user-dashboard-profile">
 						<!-- User Image -->
 						<div class="profile-thumb">
-							<img src="uploads/foto/<%-usuario.image_user%> " alt="" class="rounded-circle">
+							<img src="uploads/avatar/<%-usuario.image_user%> " alt="" class="rounded-circle">
 						</div>
 						<!-- User Name -->
 						<h5 class="text-center"><%-usuario.nome_user%> </h5>
@@ -31,10 +31,10 @@
 					<div class="widget user-dashboard-menu">
 						<ul>
 							<li class="active" ><a href=""><i class="fa fa-user"></i> Detalhes </a></li>
-							<li><a href=""><i class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a></li>
-							<li><a href=""><i class="fa fa-file-archive-o"></i>Archived Ads <span>12</span></a></li>
-							<li><a href=""><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a></li>
-							<li><a href=""><i class="fa fa-cog"></i> Terminar Sessão</a></li>
+							<li><a href="#"><i class="fa fa-bookmark-o"></i>Categorias<span>0</span></a></li>
+							<li><a href="#"><i class="fa fa-file-archive-o"></i>Área <span>12</span></a></li>
+							<li><a href="#"><i class="fa fa-bolt"></i> Areas Ja reservadas<span>23</span></a></li>
+							<li><a href="#"><i class="fa fa-cog"></i> Terminar Sessão</a></li>
 						</ul>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
 				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header">Minhas Reservas <a href="/form_reserva" style="float: right;" class="btn btn-main-sm">+</a> </h3> 
+					<h3 class="widget-header">Minha Reserva <a href="/form_reserva" style="float: right;" class="btn btn-main-sm">+</a> </h3> 
 					<table class="table table-responsive product-dashboard-table">
 						<thead>
 							<tr>
@@ -60,31 +60,29 @@
 									<img width="80px" height="auto" src="<%-src%>" alt="image description"></td>
 								<td class="product-details">
 									<h3 class="title">Reserva #</h3> 
-									<span class="add-id"><strong>ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Data: </strong><time><%-reserva.data_Criacaominha_reserva%></time> </span>
-									<span class="status active"><strong>Estado:</strong>espera</span>
-									<span class="location"><strong>Localização:</strong>Dhaka,Bangladesh</span>
-									<span class="location"><strong>Tempo</strong>00-00-00</span>
+									<span class="add-id"><strong>ID:</strong> <%= reserva.id_minha_reserva%></span>
+									<span><strong>Preco Hora: </strong><time><%-reserva.preco_hora%> kz</time> </span>
+									<span class="status active"><strong>Estado: </strong>espera</span>
+									<span class="location"><strong>Localização: </strong>Dhaka,Bangladesh</span>
+									<span class="location"><strong>Hora Entrada: </strong><%-reserva.hora_entrada%></span>
+									<span class="location"><strong>Tempo real </strong><div id="clock"> </div></span>
+									
 								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
+								<td class="product-category"><span class="categories"><%-reserva.nome_categoria%></span></td>
 								<td class="action" data-title="Action">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
+												<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="<%-src%>" target="">
 													<i class="fa fa-eye"></i>
 												</a>		
 											</li>
 											<li class="list-inline-item">
-												<a class="edit" href="">
-													<i class="fa fa-pencil"></i>
+												<a class="edit" href="<%-src%>" download="">
+													<i class="fa fa-download"></i>
 												</a>		
 											</li>
-											<li class="list-inline-item">
-												<a class="delete" href="">
-													<i class="fa fa-trash"></i>
-												</a>
-											</li>
+											
 										</ul>
 									</div>
 								</td>
@@ -104,8 +102,23 @@
 <!--============================
 =            Footer            =
 =============================-->
+<script>
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      document.getElementById('clock').textContent = formattedTime;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
 
 <%- include('partials/footer'); -%>
+<%- include("../alerts/alerts") %>
 </body>
 
 </html>

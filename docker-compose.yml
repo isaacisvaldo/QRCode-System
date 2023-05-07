@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sua-senha
+    ports:
+      - "3306:3306"

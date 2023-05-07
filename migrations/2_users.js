@@ -14,7 +14,7 @@ exports.up = function(knex) {
         table.string('nif_user').notNullable()
         table.integer('estado_user').notNullable().defaultTo('1');
    
-        table.string('data_CriacaoUser').notNullable().defaultTo(knex.fn.now())
+        table.timestamp('data_CriacaoUser').notNullable().defaultTo(knex.fn.now())
        
       
     }) 

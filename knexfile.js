@@ -12,7 +12,7 @@
      port : 3306,
      database: 'estancionamento',
     user:'root',
-    password: ''
+    password: 'sua-senha'
   },
   pool: {
     min: 2,
