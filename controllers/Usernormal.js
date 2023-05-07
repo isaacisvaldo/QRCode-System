@@ -69,7 +69,7 @@ async index(req, res) {
           res.json({ erro: "Ocorreu um problema" });
           console.log(error)
       }
-//User Nao Logado 
+//User Nao Logado ...
     async form_login(req, res) {
         res.render('user/form/login',{ 
          errado: req.flash("errado"),
