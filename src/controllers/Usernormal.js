@@ -27,7 +27,7 @@ class UserController {
   } catch (error) {
     
   }
-  }
+}
 async painel_user(req, res) {
   try {
     

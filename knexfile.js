@@ -1,29 +1,15 @@
-// Update with your config settings.
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- 
-  */
-  module.exports = {
-
-      client: 'mysql2',
-     connection: {
-     host : '127.0.0.1',
-     port : 3306,
-     database: 'estancionamento',
-    user:'root',
-    password: 'sua-senha'
-  },
-  pool: {
-    min: 2,
-    max: 10
-  },
-  migrations: {
-    tableName: 'knex_migrations'
-  
-    }
-  
-
-
-
-};
+const path  = require ('path');
+module.exports={
+    client:'sqlite3',
+    connection:{
+        filename:path.resolve(__dirname,'src', 'database', 'database.sqlite')
+    },
+    migrations:{
+        directory:path.resolve(__dirname, 'src', 'database', 'migrations')
+    },
+    seeds:{
+        directory:path.resolve(__dirname, 'src', 'database', 'seeds')
+    },
+    useNullAsDefault:true
+}

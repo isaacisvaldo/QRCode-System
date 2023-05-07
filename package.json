@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
+    "dev": "nodemon src/index.js",
     "knex": "npx knex migrate:latest",
     "knex:reverter": "npx knex migrate:rollback",
     "knex:adicionar": "npx knex migrate:make",
@@ -41,6 +41,7 @@
     "nodecron": "^0.2.0",
     "nodemon": "^2.0.22",
     "qrcode": "^1.5.3",
-    "sequelize": "^6.25.8"
+    "sequelize": "^6.25.8",
+    "sqlite3": "^5.1.6"
   }
 }
