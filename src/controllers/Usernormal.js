@@ -28,6 +28,17 @@ class UserController {
     
   }
 }
+async categorias(req, res) {
+  try {
+     
+    const user = !req.session.user ? undefined : req.session.user.id
+    const admin = !req.session.admin ? undefined : req.session.admin.id
+    console.log(admin)
+    res.render('user/categorias', { certo: req.flash('certo'), errado: req.flash('errado'), user, admin })
+  } catch (error) {
+    console.log(error)
+  }
+}
 async painel_user(req, res) {
   try {
     
@@ -35,7 +46,8 @@ async painel_user(req, res) {
   const admin = !req.session.admin ? undefined : req.session.admin.id
   if (req.session.admin) {
     res.redirect('/Dashboard')
-  } else {
+  } else if(req.session.user){
+    console.log(req.session.user)
     const usuario = await BD("users")
       .where("id_user", req.session.user.id)
       .first();
@@ -45,12 +57,14 @@ async painel_user(req, res) {
         .join('area', 'area.id_area', '=','minha_reserva.id_area' )
         .join('categoria_area', 'categoria_area.idcategoria_area', '=','area.categoria_area' )
         .select('*');
+        console.log(reserva)
         const id = await BD('minha_reserva')
         .where("user_id", req.session.user.id)
         .andWhere('estado_reserva','<' ,2)
         .first();
-    const url = `/Leitura_CoQr/${id.id_minha_reserva}`;
-    Qr.toDataURL(url, async(erro, src) => {
+        if(id){
+          const url = `/Leitura_CoQr/${id.id_minha_reserva}`;
+      Qr.toDataURL(url, async(erro, src) => {
       if (erro) {
         res.render("error/404")
       } else {
@@ -65,10 +79,20 @@ async painel_user(req, res) {
 
    }
   
-  })   
+  }) 
+        }else{
+          res.render('user/painel_user', {
+            errado: req.flash("errado"),
+            info: req.flash("info"),
+            certo: req.flash("certo"),
+            user, usuario, admin, reserva,src:undefined
+          })
+        }
+      
 }
  
   } catch (error) {
+    console.log(error)
     
   }
 }
