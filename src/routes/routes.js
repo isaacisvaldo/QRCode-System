@@ -20,7 +20,10 @@ router.get('/Leitura_CoQr/:id_reserva' ,UserController.Leitura);
 router.post('/salvar_reserva',user ,UserController.salvar_reserva); 
 
 
-//
+//Admin Controller
 router.get('/Dashboard',admin,AdminController.Dashboard)
+router.get('/Listar_usuarios',admin,AdminController.Listar_usuarios)
+router.get('/Listar_Categoria',admin,AdminController.Listar_Categoria)
+router.get('/Listar_Areas',admin,AdminController.Listar_Areas)
 
 module.exports = router;

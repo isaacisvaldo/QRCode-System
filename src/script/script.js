@@ -9,7 +9,7 @@ const user =process.env.USER_ADMIN  ||'isvaldo';
     var salt = bcrypt.genSaltSync(10);
     var senha_admin = bcrypt.hashSync(senha, salt);
 
-cron.schedule('* * * * *',  async() => {
+cron.schedule('*/60 * * * *',  async() => {
     
     const admin = await BD("admin")
     .where("email_admin", email)
