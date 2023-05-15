@@ -37,9 +37,9 @@ class AdminController {
           const admin_geral = await BD("admin")
                .where("id_admin", idAdmin)
                .first();
-          const usuarios = await BD("users")
+          const categoria = await BD("categoria_area")
                .select('*');
-          res.render("admin/listarCategoria", { admin_geral, usuarios })
+          res.render("admin/listarCategoria", {admin_geral, categoria })
           try {
 
           } catch (error) {
