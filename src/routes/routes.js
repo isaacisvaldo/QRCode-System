@@ -29,5 +29,6 @@ router.get('/Dashboard',admin,AdminController.Dashboard)
 router.get('/Listar_usuarios',admin,AdminController.Listar_usuarios)
 router.get('/Listar_Categoria',admin,AdminController.Listar_Categoria)
 router.get('/Listar_Areas',admin,AdminController.Listar_Areas)
+router.get('/Nova_Categoria',admin,AdminController.Nova_Categoria)
 
 module.exports = router;

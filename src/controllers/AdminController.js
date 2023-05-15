@@ -46,6 +46,19 @@ class AdminController {
                console.log(error)
           }
      }
+     async Nova_Categoria(req, res,) {
+          const idAdmin = req.session.admin.id
+          const admin_geral = await BD("admin")
+               .where("id_admin", idAdmin)
+               .first();
+       
+          res.render("admin/add_categoria", {admin_geral })
+          try {
+
+          } catch (error) {
+               console.log(error)
+          }
+     }
      async Listar_Areas(req, res,) {
           const idAdmin = req.session.admin.id
           const admin_geral = await BD("admin")
