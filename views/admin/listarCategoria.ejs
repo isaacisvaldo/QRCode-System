@@ -30,7 +30,7 @@
       <div class="page-header">
         <div class="row align-items-center">
           <div class="col">
-            <h1 class="page-header-title">Usuarios</h1>
+            <h1 class="page-header-title">Categorias</h1>
           </div>
         
         </div>
@@ -172,17 +172,17 @@
                     <label class="form-check-label" for="datatableCheckAll"></label>
                   </div>
                 </th>
-                <th class="table-column-ps-0">Full name</th>
+                <th class="table-column-ps-0">nome_categoria</th>
                 <th>Status</th>
                 <th>Type</th>
-                <th>Email</th>
-                <th>Signed up</th>
+                <th> preco_hora</th>
+              
                 <th>User ID</th>
               </tr>
             </thead>
 
             <tbody>
-              <% usuarios.forEach(user =>{ %>
+              <% categoria.forEach(categoria =>{ %>
                 <tr>
                   <td class="table-column-pe-0">
                     <div class="form-check">
@@ -192,13 +192,9 @@
                   </td>
                   <td class="table-column-ps-0">
                     <a class="d-flex align-items-center" href="#">
-                      <div class="flex-shrink-0">
-                        <div class="avatar avatar-sm avatar-circle">
-                          <img class="avatar-img" src="/uploads/avatar/<%= user.image_user	 %>" alt="Image Description">
-                        </div>
-                      </div>
+                     
                       <div class="flex-grow-1 ms-3">
-                        <h5 class="text-inherit mb-0"> <%= user.nome_user	 %><i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
+                        <h5 class="text-inherit mb-0"> <%= categoria.nome_categoria	 %><i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
                       </div>
                     </a>
                   </td>
