@@ -32,11 +32,68 @@
           <div class="col">
             <h1 class="page-header-title">Categorias</h1>
           </div>
-        
+          <div class="col-sm-auto">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#createAKIKeyModal">
+              <i class="bi-plus me-1"></i> Novo Grupo
+            </button>
+          </div>
         </div>
         <!-- End Row -->
       </div>
-      <!-- End Page Header -->
+      <div class="modal fade" id="createAKIKeyModal" tabindex="-1" aria-labelledby="createAKIKeyModalLabel"
+      role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- Header -->
+          <div class="modal-header">
+            <h4 class="modal-title" id="createAKIKeyModalLabel">Create API Key</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <!-- End Header -->
+
+          <!-- Body -->
+          <div class="modal-body">
+            <!-- Form -->
+            <form method="post" action="/new_tb_category_area">
+              <label for="">Nome Grupo:</label>
+              <input type="text" class="form-control" placeholder="name" name="designacao_grupo">
+
+              <!-- End Form -->
+              <label for="">Preço Hora:</label>
+              <input type="text" class="form-control" placeholder="name" name="preco_hora">
+
+          </div>
+          <!-- End Body -->
+
+          <!-- Footer -->
+          <div class="modal-footer">
+            <div class="row align-items-sm-center flex-grow-1 mx-n2">
+              <div class="col-sm mb-2 mb-sm-0">
+                <p class="modal-footer-text">Novo Grupo ? <i class="bi-question-circle" data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="API stands for application programming interface. It can be helpful to think of the API as a way for different apps to talk to one another."></i>
+                </p>
+
+              </div>
+              <!-- End Col -->
+
+              <div class="col-sm-auto">
+                <div class="d-flex gap-3">
+                  <button type="button" class="btn btn-white" data-bs-dismiss="modal"
+                    aria-label="Close">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Generate</button>
+                </div>
+              </div>
+              </form>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+          <!-- End Footer -->
+        </div>
+      </div>
+    </div>
 
   
       <div class="card mb-3 mb-lg-5">
@@ -202,9 +259,7 @@
                     <span class="legend-indicator bg-success"></span>Successful
                   </td>
                   <td>Unassigned</td>
-                  <td><%= user.email_user %></td>
-                  <td><%= user.dataCadastro%></td>
-                  <td><%= user.id_user%></td>
+               
                 </tr>
                 <% }) %>
              
