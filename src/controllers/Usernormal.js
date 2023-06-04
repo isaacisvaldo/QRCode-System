@@ -22,8 +22,10 @@ class UserController {
      
     const user = !req.session.user ? undefined : req.session.user.id
     const admin = !req.session.admin ? undefined : req.session.admin.id
-    console.log(admin)
-    res.render('user/index', { certo: req.flash('certo'), errado: req.flash('errado'), user, admin })
+    const categoria = await BD("categoria_area")
+    .join('area','area.categoria_area','=','idcategoria_area')
+    .select('*');
+    res.render('user/index', { certo: req.flash('certo'), errado: req.flash('errado'), user,categoria, admin })
   } catch (error) {
     
   }
@@ -33,8 +35,12 @@ async categorias(req, res) {
      
     const user = !req.session.user ? undefined : req.session.user.id
     const admin = !req.session.admin ? undefined : req.session.admin.id
-    console.log(admin)
-    res.render('user/categorias', { certo: req.flash('certo'), errado: req.flash('errado'), user, admin })
+    const categoria = await BD("categoria_area")
+      .select('*');
+      const areas = await BD("area")
+      .join('categoria_area','categoria_area.idcategoria_area','=','area.categoria_area')
+      .select('*');
+    res.render('user/categorias', { certo: req.flash('certo'), errado: req.flash('errado'), user,areas, admin,categoria })
   } catch (error) {
     console.log(error)
   }
