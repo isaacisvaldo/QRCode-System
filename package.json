@@ -40,7 +40,9 @@
     "node-cron": "^3.0.2",
     "nodecron": "^0.2.0",
     "nodemon": "^2.0.22",
+    "package-lock.json": "^1.0.0",
     "qrcode": "^1.5.3",
+    "rm": "^0.1.8",
     "sequelize": "^6.25.8",
     "sqlite3": "^5.1.6"
   }

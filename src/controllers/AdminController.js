@@ -46,7 +46,18 @@ class AdminController {
                console.log(error)
           }
      }
- 
+     async Nova_Categoria(req, res,) {
+         const {nome_categoria,preco_hora}= req.body
+
+         const categoria = await BD("categoria_area").insert({nome_categoria,estado_categoria:1,preco_hora});
+         res.redirect("/Listar_Categoria")
+
+          try {
+
+          } catch (error) {
+               console.log(error)
+          }
+     }
      async Listar_Areas(req, res,) {
           const idAdmin = req.session.admin.id
           const admin_geral = await BD("admin")
@@ -61,25 +72,5 @@ class AdminController {
                console.log(error)
           }
      }
-     async new_tb_category_area(req,res){
-          try {
-             const {nome_categoria,preco_hora}= req.body;
-       
-             const verify = await BD("categoria_area")
-             .where("nome_categoria", 'like', `%${nome_categoria}%`)
-             .first();
-             if(!verify){
-                const category = await BD("categoria_area").insert({ nome_categoria,estado_categoria:1,preco_hora })
-                req.flash('certo', "Categoria Cadastrado!");
-                res.redirect('/Listar_Categoria')  
-             }else{
-                req.flash('errado', "Esta categoria Ja esta cadastrado!");
-                res.redirect('/Listar_Categoria') 
-             }
-          } catch (error) {
-             
-          }
-       
-         }
 }
 module.exports = new AdminController();

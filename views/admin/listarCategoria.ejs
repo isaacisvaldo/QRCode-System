@@ -35,19 +35,20 @@
           <div class="col-sm-auto">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
               data-bs-target="#createAKIKeyModal">
-              <i class="bi-plus me-1"></i> Novo Grupo
+              <i class="bi-plus me-1"></i> Novo Categoria
             </button>
           </div>
         </div>
         <!-- End Row -->
       </div>
+      <!-- End Page Header -->
       <div class="modal fade" id="createAKIKeyModal" tabindex="-1" aria-labelledby="createAKIKeyModalLabel"
       role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <!-- Header -->
           <div class="modal-header">
-            <h4 class="modal-title" id="createAKIKeyModalLabel">Create API Key</h4>
+            <h4 class="modal-title" id="createAKIKeyModalLabel">Cadastrar nova Categoria</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <!-- End Header -->
@@ -55,14 +56,15 @@
           <!-- Body -->
           <div class="modal-body">
             <!-- Form -->
-            <form method="post" action="/new_tb_category_area">
-              <label for="">Nome Grupo:</label>
-              <input type="text" class="form-control" placeholder="name" name="designacao_grupo">
+            <form method="post" action="/Nova_Categoria">
+              <label for="">Nome Categoria:</label>
+              <input type="text" class="form-control" placeholder="name" name="nome_categoria">
 
-              <!-- End Form -->
-              <label for="">Preço Hora:</label>
+              <label for="">Preco Categoria:</label>
               <input type="text" class="form-control" placeholder="name" name="preco_hora">
 
+
+              <!-- End Form  -->
           </div>
           <!-- End Body -->
 
@@ -82,7 +84,7 @@
                 <div class="d-flex gap-3">
                   <button type="button" class="btn btn-white" data-bs-dismiss="modal"
                     aria-label="Close">Cancel</button>
-                  <button type="submit" class="btn btn-primary">Generate</button>
+                  <button type="submit" class="btn btn-primary">Criar Categoria</button>
                 </div>
               </div>
               </form>
@@ -94,7 +96,6 @@
         </div>
       </div>
     </div>
-
   
       <div class="card mb-3 mb-lg-5">
         <!-- Header -->
@@ -234,7 +235,7 @@
                 <th>Type</th>
                 <th> preco_hora</th>
               
-                <th>User ID</th>
+                <th> Açcão</th>
               </tr>
             </thead>
 
@@ -259,7 +260,9 @@
                     <span class="legend-indicator bg-success"></span>Successful
                   </td>
                   <td>Unassigned</td>
-               
+                  <td><%= categoria.preco_hora %></td>
+                  <td>   </td>
+                 
                 </tr>
                 <% }) %>
              

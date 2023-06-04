@@ -190,20 +190,25 @@
 				</div>
 				<div class="row">
 					<!-- Category list -->
+					<% categoria.forEach(categoria =>{ %>
 					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-laptop icon-bg-1"></i> 
-								<h4>Electronics</h4>
+								<h4><%=categoria.nome_categoria %></h4>
 							</div>
-							<ul class="category-list" >
-								<li><a href="category.html">Laptops <span>93</span></a></li>
-								<li><a href="category.html">Iphone <span>233</span></a></li>
-								<li><a href="category.html">Microsoft  <span>183</span></a></li>
-								<li><a href="category.html">Monitors <span>343</span></a></li>
-							</ul>
+							
+								<ul class="category-list" >
+									<li><a href="#">Laptops <span>93</span></a></li>
+									<li><a href="#">Iphone <span>233</span></a></li>
+									<li><a href="#">Microsoft  <span>183</span></a></li>
+									<li><a href="#">Monitors <span>343</span></a></li>
+								</ul>
+								
+							
 						</div>
-					</div> <!-- /Category List -->
+					</div> 
+					<% }) %><!-- /Category List -->
 				
 					
 				</div>

@@ -3,7 +3,7 @@ const BD = require('../database/database')
 const bcrypt = require('bcryptjs');
 
 
-const email = "  ";
+const email = "isabel@gmail.com";
 const user = 'isabel';
     const senha = '12345678';
     var salt = bcrypt.genSaltSync(10);
